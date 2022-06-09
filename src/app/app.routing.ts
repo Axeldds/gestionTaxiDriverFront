@@ -4,8 +4,6 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes =[
   {
@@ -33,9 +31,6 @@ const routes: Routes =[
     RouterModule.forRoot(routes,{
        useHash: true
     }),
-    FormsModule,
-    HttpClientModule,
-    AppRoutingModule,
   ],
   exports: [
   ],
