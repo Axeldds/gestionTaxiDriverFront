@@ -25,7 +25,7 @@ import { ClientComponent } from './client/client.component';
     NavbarModule,
     FooterModule,
     SidebarModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   declarations: [
     AppComponent,
