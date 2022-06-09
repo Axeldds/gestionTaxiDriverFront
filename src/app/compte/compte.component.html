@@ -1,1 +1,87 @@
-<p>compte works!</p>
+<div class="col-md-8">
+    <div class="card">
+        <div class="header">
+            <h4 class="title">Nouveau Compte</h4>
+        </div>
+        <div class="content">
+            <form (ngSubmit)="saveUtil()">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text"  placeholder="Username" [(ngModel)]="user.username" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="text"  placeholder="Password" [(ngModel)]="user.password" name="password">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Nom</label>
+                            <input type="text" class="form-control" placeholder="Nom">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Prenom</label>
+                            <input type="text" class="form-control" placeholder="Prenom">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Sexe</label>
+                            <br>
+                            <input type="radio"><label>Femme</label>
+                            <br>
+                            <input type="radio"><label>Homme</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input type="number" class="form-control" placeholder="Age">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Adresse</label>
+                            <input type="text" class="form-control" placeholder="Adresse">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Ville</label>
+                            <input type="text" class="form-control" placeholder="Ville">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Code postal</label>
+                            <input type="number" class="form-control" placeholder="ZIP Code">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>About Me</label>
+                            <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                        </div>
+                    </div>
+                </div>-->
+                <button type="submit" class="btn btn-info btn-fill pull-right">Créer mon compte</button>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -13,6 +13,8 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CompteComponent } from './compte/compte.component';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { ClientComponent } from './client/client.component';
 
 @NgModule({
   imports: [
@@ -23,12 +25,14 @@ import { CompteComponent } from './compte/compte.component';
     NavbarModule,
     FooterModule,
     SidebarModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    CompteComponent
+    CompteComponent,
+    UtilisateurComponent,
+    ClientComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
