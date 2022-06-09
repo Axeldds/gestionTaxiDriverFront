@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CompteComponent } from './compte/compte.component';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { CompteComponent } from './compte/compte.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    CompteComponent
+    CompteComponent,
+    UtilisateurComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
