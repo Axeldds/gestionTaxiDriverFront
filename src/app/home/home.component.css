@@ -1,0 +1,65 @@
+.main-content{
+    background-image: url(../../assets/img/taxiBackground.jpg);
+}
+
+#avisEtStats{
+    position: relative;
+}
+#stats{
+    width: 50%;
+    left: 0;
+}
+#avis{
+    position: absolute;
+    width: 49%;
+    top: 0;
+    right: 0;
+}
+.fa-star {
+	color: gray;
+	cursor: pointer;
+	padding: 0.0625rem;
+}
+.fa-star.gold {
+	color: #ffdc0f;
+}
+
+.rating {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.stars {
+		display: inline-flex;
+		justify-content: center;
+		font-size: 3em;
+}
+
+.stars:hover .fa-star {
+		color: #ffdc0f;
+}
+	
+.stars .fa-star:hover ~ .fa-star {
+		color: gray;
+}
+
+h3:hover{ 
+    transform: scale(1.3);
+    color: goldenrod;
+    text-decoration-line  : underline ;
+}
+
+.trajet{
+    color: goldenrod;
+    text-decoration-line  : underline ;
+}
+.titleavis{
+    color: goldenrod;
+    text-align: center;
+    text-decoration-line  : underline ;
+}
+.soustitleavis{
+    color: goldenrod;
+    text-align: center;
+}
