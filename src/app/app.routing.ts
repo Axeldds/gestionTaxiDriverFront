@@ -30,7 +30,7 @@ const routes: Routes =[
     BrowserModule,
     RouterModule.forRoot(routes,{
        useHash: true
-    })
+    }),
   ],
   exports: [
   ],
