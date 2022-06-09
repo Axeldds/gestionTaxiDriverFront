@@ -8,17 +8,17 @@ import { Observable } from 'rxjs';
 export class UtilisateurService {
 
   private baseURL = "http://localhost:7070/utilisateurs"
-  constructor(private HttpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient) { }
 
   public findAll(): Observable<any>{
-    return this.HttpClient.get(this.baseURL);
+    return this.httpClient.get(this.baseURL);
   }
 
   public delete(id:number):Observable<any>{
-    return this.HttpClient.delete(this.baseURL+"/"+id)
+    return this.httpClient.delete(this.baseURL+"/"+id)
   }
 
   public save(utilisateur:any) : Observable<any>{
-    return this.HttpClient.post(this.baseURL, utilisateur);
+    return this.httpClient.post(this.baseURL, utilisateur);
   }
 }

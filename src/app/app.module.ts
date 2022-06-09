@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CompteComponent } from './compte/compte.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { ClientComponent } from './client/client.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { UtilisateurComponent } from './utilisateur/utilisateur.component';
     AppComponent,
     AdminLayoutComponent,
     CompteComponent,
-    UtilisateurComponent
+    UtilisateurComponent,
+    ClientComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
