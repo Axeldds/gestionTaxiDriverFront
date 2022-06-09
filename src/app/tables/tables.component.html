@@ -4,19 +4,27 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Striped Table with Hover</h4>
-                        <p class="category">Here is a subtitle for this table</p>
+                        <h4 class="title">Nos chauffeurs</h4>
+                        <p class="category">Vous trouverez ici les informations sur nos chauffeurs et leurs véhicules</p>
                     </div>
                     <div class="content table-responsive table-full-width">
                           <table class="table table-hover table-striped">
                                 <thead>
                                     <tr>
-                                        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                                        <th>Id</th>
+                                        <th>Nom</th>
+                                        <th>Prenom</th>
+                                        <th>Marque</th>
+                                        <th>Modèle</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let row of tableData1.dataRows">
-                                        <td *ngFor="let cell of row">{{cell}}</td>
+                                    <tr *ngFor="let c of chauffeurs">
+                                        <td>{{c.idChauffeur}}</td>
+                                        <td>{{c.nomChauffeur}}</td>
+                                        <td>{{c.prenomChauffeur}}</td>
+                                        <td>{{taxis.marque}}</td>
+                                        <td>{{taxis.modele}}</td>
                                     </tr>
                                 </tbody>
                           </table>
