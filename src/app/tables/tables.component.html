@@ -23,8 +23,8 @@
                                         <td>{{c.idChauffeur}}</td>
                                         <td>{{c.nomChauffeur}}</td>
                                         <td>{{c.prenomChauffeur}}</td>
-                                        <td>{{taxis.marque}}</td>
-                                        <td>{{taxis.modele}}</td>
+                                        <td *ngFor="let t of taxis">{{t.marque}}</td>
+                                        <td *ngFor="let t of taxis">{{t.modele}}</td>
                                     </tr>
                                 </tbody>
                           </table>
