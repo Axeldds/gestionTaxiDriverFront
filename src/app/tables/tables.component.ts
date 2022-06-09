@@ -24,8 +24,14 @@ export class TablesComponent implements OnInit {
   constructor(private chauffeurService:ChauffeurService, private taxiService:TaxiService) { }
 
   ngOnInit() {
-    this.chauffeurService.findAll();
-    this.taxiService.findAll();
+    this.findAllChauffeur();
+    this.findAllTaxi();
   }
+    findAllTaxi() {
+        this.taxiService.findAll().subscribe(data => {this.taxis = data});
+    }
+    findAllChauffeur() {
+        this.chauffeurService.findAll().subscribe(data => {this.chauffeurs = data});
+    }
 
 }
