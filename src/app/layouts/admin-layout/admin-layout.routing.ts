@@ -11,9 +11,10 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { composer } from 'googleapis/build/src/apis/composer';
 import { Component } from '@angular/core';
 import { UtilisateurComponent } from 'app/utilisateur/utilisateur.component';
+import { CompteComponent } from 'app/compte/compte.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: HomeComponent },
+    { path: 'accueil',        component: HomeComponent },
     { path: 'user',           component: UserComponent },
     { path: 'table',          component: TablesComponent },
     { path: 'typography',     component: TypographyComponent },
@@ -22,4 +23,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'utilisateur',    component: UtilisateurComponent},
+    { path:'compte',    component: CompteComponent}
 ];
