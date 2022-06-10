@@ -13,6 +13,7 @@ import { Component } from '@angular/core';
 import { UtilisateurComponent } from 'app/utilisateur/utilisateur.component';
 import { CompteComponent } from 'app/compte/compte.component';
 import { ClientComponent } from 'app/client/client.component';
+import { AvisComponent } from 'app/avis/avis.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'accueil',        component: HomeComponent },
@@ -25,5 +26,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'utilisateur',    component: UtilisateurComponent},
     { path:'compte',    component: CompteComponent},
-    { path:'client', component:ClientComponent}
+    { path:'client', component:ClientComponent},
 ];
