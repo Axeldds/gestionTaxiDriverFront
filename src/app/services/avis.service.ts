@@ -5,20 +5,21 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ClientService {
+export class AvisService {
 
-  private baseUrl= "http://localhost:7070/clients"
+  private baseUrl="http://localhost:7070/aviss"
+
   constructor(private httpClient:HttpClient) { }
 
   public findAll(): Observable<any>{
     return this.httpClient.get(this.baseUrl);
   }
 
-  public delete(id:number): Observable<any>{
-    return this.httpClient.delete(this.baseUrl+"/"+id)
+  public delete(id:number):Observable<any>{
+    return this.httpClient.delete(this.baseUrl+"/"+id);
   }
 
-  public save(client:any): Observable<any>{
-    return this.httpClient.post(this.baseUrl, client)
+  public save(avis:any):Observable<any>{
+    return this.httpClient.post(this.baseUrl, avis);
   }
 }

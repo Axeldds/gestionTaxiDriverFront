@@ -13,6 +13,15 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CompteComponent } from './compte/compte.component';
+import { UtilisateurComponent } from './utilisateur/utilisateur.component';
+import { ClientComponent } from './client/client.component';
+import { ReclamationComponent } from './reclamation/reclamation.component';
+import { AvisComponent } from './avis/avis.component';
+import { CompteresponsableComponent } from './compteresponsable/compteresponsable.component';
+import { CompteadministrateurComponent } from './compteadministrateur/compteadministrateur.component';
+import { ComptechauffeurComponent } from './comptechauffeur/comptechauffeur.component';
+import { TaxiComponent } from './taxi/taxi.component';
+
 
 @NgModule({
   imports: [
@@ -23,12 +32,20 @@ import { CompteComponent } from './compte/compte.component';
     NavbarModule,
     FooterModule,
     SidebarModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    CompteComponent
+    CompteComponent,
+    CompteresponsableComponent,
+    UtilisateurComponent,
+    ClientComponent,
+    ReclamationComponent,
+    AvisComponent,
+    ComptechauffeurComponent,
+    CompteadministrateurComponent,
+    TaxiComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

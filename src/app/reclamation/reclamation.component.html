@@ -1,0 +1,46 @@
+<div class="col-md-8">
+    <div class="card">
+        <div class="header">
+            <h4 class="title">Nouveau Compte</h4>
+        </div>
+        <div class="content">
+            <form (ngSubmit)="saveReclamation()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Nom</label>
+                            <input type="text" class="form-control" placeholder="Nom">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Prenom</label>
+                            <input type="text" class="form-control" placeholder="Prenom">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Agence</label>
+                            <br>
+                            <input type="radio"><label>Agence 1</label>
+                            <br>
+                            <input type="radio"><label>Agence 2</label>
+                            <br>
+                            <input type="radio"><label>Agence 3</label>
+                        </div>
+                    </div>   
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label>Reclamation</label>
+                                <input type="textarea" class="form-control" placeholder="Ecrivez votre réclamation ici" [(ngModel)]="reclamation.texte" name="text">
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <button type="submit" class="btn btn-info btn-fill pull-right">Créer mon compte</button>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+</div>

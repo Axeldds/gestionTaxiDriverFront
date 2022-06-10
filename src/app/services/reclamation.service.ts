@@ -5,9 +5,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ClientService {
-
-  private baseUrl= "http://localhost:7070/clients"
+export class ReclamationService {
+  private baseUrl= "http://localhost:7070/reclamations"
   constructor(private httpClient:HttpClient) { }
 
   public findAll(): Observable<any>{
@@ -18,7 +17,7 @@ export class ClientService {
     return this.httpClient.delete(this.baseUrl+"/"+id)
   }
 
-  public save(client:any): Observable<any>{
-    return this.httpClient.post(this.baseUrl, client)
+  public save(reclamation:any): Observable<any>{
+    return this.httpClient.post(this.baseUrl, reclamation)
   }
 }
