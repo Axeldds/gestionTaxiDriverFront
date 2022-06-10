@@ -45,6 +45,7 @@
                                                     <th>note</th>
                                                     <th>titre</th>
                                                     <th>Commentaire</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -53,10 +54,10 @@
                                                     <td>{{a.note}}</td>
                                                     <td>{{a.titre}}</td>
                                                     <td>{{a.commentaire}}</td>
+                                                    <td><button (click)="deleteAvis(a.idAvis)" class="btn btn-info btn-fill pull-center">Supprimer</button></td>
                                                 </tr>
                                             </tbody>
                                       </table>
-            
                                 </div>
                             </div>
                         </div>
