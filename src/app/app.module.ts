@@ -15,9 +15,12 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { CompteComponent } from './compte/compte.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { ClientComponent } from './client/client.component';
+import { ReclamationComponent } from './reclamation/reclamation.component';
+import { AvisComponent } from './avis/avis.component';
 import { CompteresponsableComponent } from './compteresponsable/compteresponsable.component';
-import { ComptechauffeurComponent } from './comptechauffeur/comptechauffeur.component';
 import { CompteadministrateurComponent } from './compteadministrateur/compteadministrateur.component';
+import { ComptechauffeurComponent } from './comptechauffeur/comptechauffeur.component';
+
 
 @NgModule({
   imports: [
@@ -37,8 +40,10 @@ import { CompteadministrateurComponent } from './compteadministrateur/compteadmi
     CompteresponsableComponent,
     UtilisateurComponent,
     ClientComponent,
+    ReclamationComponent,
+    AvisComponent,
     ComptechauffeurComponent,
-    CompteadministrateurComponent
+    CompteadministrateurComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
