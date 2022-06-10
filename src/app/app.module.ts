@@ -15,6 +15,9 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { CompteComponent } from './compte/compte.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { ClientComponent } from './client/client.component';
+import { CompteresponsableComponent } from './compteresponsable/compteresponsable.component';
+import { ComptechauffeurComponent } from './comptechauffeur/comptechauffeur.component';
+import { CompteadministrateurComponent } from './compteadministrateur/compteadministrateur.component';
 
 @NgModule({
   imports: [
@@ -31,8 +34,11 @@ import { ClientComponent } from './client/client.component';
     AppComponent,
     AdminLayoutComponent,
     CompteComponent,
+    CompteresponsableComponent,
     UtilisateurComponent,
-    ClientComponent
+    ClientComponent,
+    ComptechauffeurComponent,
+    CompteadministrateurComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
