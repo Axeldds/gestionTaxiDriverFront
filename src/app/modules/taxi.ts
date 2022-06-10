@@ -1,3 +1,5 @@
+import { Chauffeur } from "./chauffeur";
+
 export class Taxi {
     idTaxi!:number;
     immatriculation!:string;
