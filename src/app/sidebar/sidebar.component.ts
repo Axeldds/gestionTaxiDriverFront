@@ -18,6 +18,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/upgrade', title: 'Upgrade to PRO',  icon:'pe-7s-rocket', class: 'active-pro' },
     { path: '/compte', title:'Compte',icon:'pe-7s-user', class: ''},
     { path: '/avis', title:'Avis', icon:'pe-7s-pen', class: ''},
+    { path: '/taxi', title:'Taxi', icon:'pe-7s-car', class: ''},
 ];
 
 @Component({
