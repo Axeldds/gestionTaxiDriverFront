@@ -16,6 +16,11 @@ import { CompteComponent } from './compte/compte.component';
 import { UtilisateurComponent } from './utilisateur/utilisateur.component';
 import { ClientComponent } from './client/client.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
+import { AvisComponent } from './avis/avis.component';
+import { CompteresponsableComponent } from './compteresponsable/compteresponsable.component';
+import { CompteadministrateurComponent } from './compteadministrateur/compteadministrateur.component';
+import { ComptechauffeurComponent } from './comptechauffeur/comptechauffeur.component';
+
 
 @NgModule({
   imports: [
@@ -32,9 +37,13 @@ import { ReclamationComponent } from './reclamation/reclamation.component';
     AppComponent,
     AdminLayoutComponent,
     CompteComponent,
+    CompteresponsableComponent,
     UtilisateurComponent,
     ClientComponent,
-    ReclamationComponent
+    ReclamationComponent,
+    AvisComponent,
+    ComptechauffeurComponent,
+    CompteadministrateurComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
