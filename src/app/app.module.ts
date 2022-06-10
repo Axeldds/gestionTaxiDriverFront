@@ -20,6 +20,7 @@ import { AvisComponent } from './avis/avis.component';
 import { CompteresponsableComponent } from './compteresponsable/compteresponsable.component';
 import { CompteadministrateurComponent } from './compteadministrateur/compteadministrateur.component';
 import { ComptechauffeurComponent } from './comptechauffeur/comptechauffeur.component';
+import { TaxiComponent } from './taxi/taxi.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { ComptechauffeurComponent } from './comptechauffeur/comptechauffeur.comp
     AvisComponent,
     ComptechauffeurComponent,
     CompteadministrateurComponent,
+    TaxiComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
