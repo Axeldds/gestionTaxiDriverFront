@@ -8,6 +8,10 @@ import { AvisService } from 'app/services/avis.service';
   styleUrls: ['./avis.component.scss']
 })
 export class AvisComponent implements OnInit {
+  searchTerm:string="";
+  direction:string="asc";
+  column:string="first";
+  type:string="number";
   avisS!: any[];
   avis: Avis=new Avis();
   constructor(private avisService:AvisService) { }
@@ -30,5 +34,11 @@ export class AvisComponent implements OnInit {
       this.avis=new Avis();
     })
   }
+
+  setSortParams(param){
+    this.direction=param.dir;
+    this.column=param.col;
+    this.type=param.typ;
+    }
 
 }

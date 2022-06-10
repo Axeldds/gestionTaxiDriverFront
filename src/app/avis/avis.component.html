@@ -38,18 +38,31 @@
                                     <p class="category">Vous trouverez ici la liste des avis</p>
                                 </div>
                                 <div class="content table-responsive table-full-width">
+                                    <input type="text" [(ngModel)]="searchTerm" name="searchTerm" placeholder="Search">
                                       <table class="table table-hover table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th>Id</th>
-                                                    <th>note</th>
-                                                    <th>titre</th>
-                                                    <th>Commentaire</th>
+                                                    <th>Id
+                                                        <i appSortparams (param)="setSortParams($event)" class="fa fa-arrow-up" id="idAsc"></i>
+                                                        <i appSortparams (param)="setSortParams($event)" class="fa fa-arrow-down" id="idDesc"></i>
+                                                    </th>
+                                                    <th>note
+                                                        <i appSortparams (param)="setSortParams($event)" class="fa fa-arrow-up" id="noteAsc"></i>
+                                                        <i appSortparams (param)="setSortParams($event)" class="fa fa-arrow-down" id="noteDesc"></i>
+                                                    </th>
+                                                    <th>titre
+                                                        <i appSortparams (param)="setSortParams($event)" class="fa fa-arrow-up" id="titreAsc"></i>
+                                                        <i appSortparams (param)="setSortParams($event)" class="fa fa-arrow-down" id="titreDesc"></i>
+                                                    </th>
+                                                    <th>Commentaire
+                                                        <i appSortparams (param)="setSortParams($event)" class="fa fa-arrow-up" id="commentaireAsc"></i>
+                                                        <i appSortparams (param)="setSortParams($event)" class="fa fa-arrow-down" id="commentaireDesc"></i>
+                                                    </th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr *ngFor="let a of avisS">
+                                                <tr *ngFor="let a of avisS |filter:searchTerm|sort:direction:column:type">
                                                     <td>{{a.idAvis}}</td>
                                                     <td>{{a.note}}</td>
                                                     <td>{{a.titre}}</td>
