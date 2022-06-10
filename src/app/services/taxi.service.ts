@@ -19,7 +19,8 @@ export class TaxiService {
     return this.httpClient.delete(this.baseURL+"/"+id)
   }
 
-  public save(taxi:any) : Observable<any>{
+
+  public save(taxi:any):Observable<any>{
     return this.httpClient.post(this.baseURL, taxi);
   }
 }
