@@ -1,1 +1,33 @@
-<p>avis works!</p>
+<div class="col-md-8">
+    <div class="card">
+        <div class="header">
+            <h4 class="title">Déposer un avis</h4>
+        </div>
+        <div class="content">
+            <form (ngSubmit)="save()">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>note</label>
+                            <input type="text" class="form-control" placeholder="note" [(ngModel)]="avis.note" name="note">
+                        </div>
+                        <div class="form-group">
+                            <label>Titre</label>
+                            <input type="text"  class ="form-control" placeholder="titre" [(ngModel)]="avis.titre" name="titre">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>commentaire</label>
+                            <textarea type="text" rows="5" class="form-control" placeholder="Répendez votre amour ou votre haine peu importe on ne lit pas vos commentaites.." [(ngModel)]="avis.commentaire" name="commentaire"></textarea>
+                        </div>
+                    </div>
+                </div>
+                    <button type="submit" class="btn btn-info btn-fill pull-right">Déposer l'avis</button>
+                <div class="clearfix"></div>
+            </form>
+        </div>
+    </div>
+</div>
