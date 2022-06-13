@@ -1,4 +1,5 @@
 import { Administrateur } from "./administrateur";
+import { Chauffeur } from "./chauffeur";
 import { Client } from "./client";
 import { ResponsableAgence } from "./responsable-agence";
 
@@ -9,4 +10,5 @@ export class Utilisateur {
     clients!:Client[];
     responsables!:ResponsableAgence[];
     administrateurs!:Administrateur[];
+    chauffeur:Chauffeur;
 }

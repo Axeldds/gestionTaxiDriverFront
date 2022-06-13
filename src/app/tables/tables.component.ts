@@ -40,7 +40,14 @@ export class TablesComponent implements OnInit {
       deleteChauffeur(id:number){
         this.chauffeurService.delete(id).subscribe(() => {this.findAllChauffeur()})
       }
-    
+
+      updateChauffeur(id:number){
+        this.chauffeurService.update(id).subscribe(() => {
+          this.chauffeurService.save(this.chauffeur);
+          this.findAllChauffeur();
+          this.chauffeur= new Chauffeur();
+        });
+      }
       saveTaxi(){
         this.taxiService.save(this.taxi).subscribe(() => {
           this.findAllTaxi();
