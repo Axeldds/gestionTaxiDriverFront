@@ -25,6 +25,9 @@ import { SortparamsDirective } from './sortparams.directive';
 import { SortPipe } from './sort.pipe';
 import { FilterPipe } from './filter.pipe';
 
+import { BrowserModule } from '@angular/platform-browser';
+import { AgmCoreModule } from '@agm/core';
+
 
 @NgModule({
   imports: [
@@ -36,6 +39,10 @@ import { FilterPipe } from './filter.pipe';
     FooterModule,
     SidebarModule,
     AppRoutingModule,
+    BrowserModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCN913MNvahA0-e53Jr9o4fg9VqdFuyTwo'
+    })
   ],
   declarations: [
     AppComponent,
