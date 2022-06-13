@@ -22,4 +22,7 @@ export class AvisService {
   public save(avis:any):Observable<any>{
     return this.httpClient.post(this.baseUrl, avis);
   }
+  public findByNote(note:number):Observable<any>{
+    return this.httpClient.get(this.baseUrl+"/note/"+note);
+  }
 }
