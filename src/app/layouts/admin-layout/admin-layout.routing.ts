@@ -19,6 +19,7 @@ import { ComptechauffeurComponent } from 'app/comptechauffeur/comptechauffeur.co
 import { CompteadministrateurComponent } from 'app/compteadministrateur/compteadministrateur.component';
 import { TaxiComponent } from 'app/taxi/taxi.component';
 import { ReclamationComponent } from 'app/reclamation/reclamation.component';
+import { AgenceComponent } from 'app/agence/agence.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'accueil',        component: HomeComponent },
@@ -37,5 +38,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'compteadministrateur', component:CompteadministrateurComponent},
     { path: 'avis', component:AvisComponent},
     { path: 'taxi' , component:TaxiComponent},
-    { path: 'reclamation',     component: ReclamationComponent}
+    { path: 'reclamation',     component: ReclamationComponent},
+    { path: 'agence',   component: AgenceComponent}
 ];

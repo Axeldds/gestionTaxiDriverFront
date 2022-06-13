@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CalendarOptions } from '@fullcalendar/angular';
 import { Chauffeur } from 'app/modules/chauffeur';
 import { Taxi } from 'app/modules/taxi';
 import { ChauffeurService } from 'app/services/chauffeur.service';
@@ -15,6 +16,19 @@ declare interface TableData {
   styleUrls: ['./tables.component.css']
 })
 export class TablesComponent implements OnInit {
+  calendarVisible = true;
+  calendarOptions: CalendarOptions = {
+    headerToolbar: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'},
+      initialView: 'timeGridWeek',
+    events: [
+      { title: 'event 1', date: '2019-04-01' },
+    ]
+  };
+
+
     chauffeurs!: any[];
     taxis!: any[];
     chauffeur: Chauffeur=new Chauffeur();

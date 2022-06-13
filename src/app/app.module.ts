@@ -21,16 +21,27 @@ import { CompteresponsableComponent } from './compteresponsable/compteresponsabl
 import { CompteadministrateurComponent } from './compteadministrateur/compteadministrateur.component';
 import { ComptechauffeurComponent } from './comptechauffeur/comptechauffeur.component';
 import { TaxiComponent } from './taxi/taxi.component';
-import { SortparamsDirective } from './sortparams.directive';
-import { SortPipe } from './sort.pipe';
-import { FilterPipe } from './filter.pipe';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { AgmCoreModule } from '@agm/core';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction';
+import { AgenceComponent } from './agence/agence.component';
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  timeGridPlugin,
+  listPlugin,
+  interactionPlugin
+]);
 
 
 @NgModule({
   imports: [
+    FullCalendarModule,
     BrowserAnimationsModule,
     FormsModule,
     RouterModule,
@@ -56,9 +67,7 @@ import { AgmCoreModule } from '@agm/core';
     ComptechauffeurComponent,
     CompteadministrateurComponent,
     TaxiComponent,
-    SortparamsDirective,
-    SortPipe,
-    FilterPipe,
+    AgenceComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
