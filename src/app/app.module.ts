@@ -22,6 +22,9 @@ import { CompteadministrateurComponent } from './compteadministrateur/compteadmi
 import { ComptechauffeurComponent } from './comptechauffeur/comptechauffeur.component';
 import { TaxiComponent } from './taxi/taxi.component';
 
+import { BrowserModule } from '@angular/platform-browser';
+import { AgmCoreModule } from '@agm/core';
+
 
 @NgModule({
   imports: [
@@ -33,6 +36,10 @@ import { TaxiComponent } from './taxi/taxi.component';
     FooterModule,
     SidebarModule,
     AppRoutingModule,
+    BrowserModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCN913MNvahA0-e53Jr9o4fg9VqdFuyTwo'
+    })
   ],
   declarations: [
     AppComponent,
