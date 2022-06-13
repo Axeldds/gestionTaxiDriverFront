@@ -21,9 +21,6 @@ import { CompteresponsableComponent } from './compteresponsable/compteresponsabl
 import { CompteadministrateurComponent } from './compteadministrateur/compteadministrateur.component';
 import { ComptechauffeurComponent } from './comptechauffeur/comptechauffeur.component';
 import { TaxiComponent } from './taxi/taxi.component';
-import { SortparamsDirective } from './sortparams.directive';
-import { SortPipe } from './sort.pipe';
-import { FilterPipe } from './filter.pipe';
 
 
 @NgModule({
@@ -49,9 +46,6 @@ import { FilterPipe } from './filter.pipe';
     ComptechauffeurComponent,
     CompteadministrateurComponent,
     TaxiComponent,
-    SortparamsDirective,
-    SortPipe,
-    FilterPipe,
   ],
   providers: [],
   bootstrap: [AppComponent]
