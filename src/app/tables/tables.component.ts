@@ -6,6 +6,7 @@ import { Taxi } from 'app/modules/taxi';
 import { AgenceService } from 'app/services/agence.service';
 import { ChauffeurService } from 'app/services/chauffeur.service';
 import { TaxiService } from 'app/services/taxi.service';
+import { data } from 'jquery';
 
 declare interface TableData {
     headerRow: string[];
@@ -33,9 +34,9 @@ export class TablesComponent implements OnInit {
 
     chauffeurs!: any[];
     taxis!: any[];
+    agences!:any[];
     chauffeur: Chauffeur=new Chauffeur();
     taxi: Taxi=new Taxi();
-    agences!: any[];
     agence: Agence=new Agence();
 
   constructor(private chauffeurService:ChauffeurService, private taxiService:TaxiService, private agenceService:AgenceService) { }

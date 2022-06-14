@@ -8,5 +8,5 @@ export class Chauffeur {
     prenomChauffeur!:string;
     age!:number;
     taxi!:Taxi;
-    agence!:Agence;
+    agence!: Agence;
 }

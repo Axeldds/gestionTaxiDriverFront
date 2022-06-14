@@ -25,10 +25,12 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <!--<div class="form-group">
+                        <div class="form-group">
                             <label>Responsable Agence</label>
-                            <input type="number" class="form-control" placeholder="milometrage" [(ngModel)]="taxi.kilometrage" name="kilometrage">
-                        </div>-->
+                            <select name="responsables" [(ngModel)]="agence.resp">
+                                <option *ngFor="let p of responsables" value="p">{{p.nomResponsable}}</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
@@ -84,16 +86,18 @@
                                                     <th>Nom de l'Agence</th>
                                                     <th>Adresse</th>
                                                     <th>Chiffre d'affaire</th>
+                                                    <th>Responsable</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr *ngFor="let a of agences">
-                                                    <td>{{a.idAgence}}</td>
-                                                    <td>{{a.nomAgence}}</td>
-                                                    <td>{{a.adresse}}</td>
-                                                    <td>{{a.chiffreAffaire}}</td>
-                                                    <td><button (click)="deleteAgence(a.idAgence)" class="btn btn-info btn-fill pull-center">Supprimer</button></td>
+                                                <tr *ngFor="let g of agences">
+                                                    <td>{{g.idAgence}}</td>
+                                                    <td>{{g.nomAgence}}</td>
+                                                    <td>{{g.adresse}}</td>
+                                                    <td>{{g.chiffreAffaire}}</td>
+                                                    <td>{{g.resp.nomResponsable}}</td>
+                                                    <td><button (click)="deleteAgence(g.idAgence)" class="btn btn-info btn-fill pull-center">Supprimer</button></td>
                                                 </tr>
                                             </tbody>
                                       </table>
