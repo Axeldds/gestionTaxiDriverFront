@@ -1,11 +1,12 @@
-<div class="col-md-8">
+<div class="col-md-12">
     <div class="card">
         <div class="header">
             <h4 class="title">Faire une réclamation</h4>
         </div>
         <div class="content">
             <form (ngSubmit)="saveReclamation()">
-                <div class="row">
+                <div class="row"> 
+                    <!--
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Nom</label>
@@ -18,14 +19,16 @@
                             <input type="text" class="form-control" placeholder="Prenom">
                         </div>
                     </div>
+                    -->
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Agence</label>
-                            <select formControlName="Agence">
-                                <option *ngFor="let r of reclamation" [(ngModel)]="r.nomAgence"></option>
+                            <select [(ngModel)]="reclamation.agence">
+                                <option *ngFor="let age of agences" [ngValue]="age">{{age.nomAgence}}</option>
                             </select>
                         </div>
-                    </div>   
+                    </div>
+                
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -38,7 +41,12 @@
                 <button type="submit" class="btn btn-info btn-fill pull-right">Envoyer ma réclamation</button>
                 <div class="clearfix"></div>
             </form>
-            <!--
+            </div>
+            </div>
+            </div>
+            <div class="main-content">
+                <div class="container-fluid">
+                    <div class="row">
         <div class="main-content">
                 <div class="container-fluid">
                     <div class="row">
@@ -52,7 +60,7 @@
                     <thead>
                         <tr>
                             <th>Id Réclamation</th>
-                            <th>Id Client</th>
+                            <!--<th>Id Client</th>-->
                             <th>Agence</th>
                             <th>Réclamation</th>
                         </tr>
@@ -60,8 +68,8 @@
                     <tbody>
                         <tr *ngFor="let r of reclamations">
                             <td>{{r.idReclamation}}</td>
-                            <td>{{}}</td>
-                            <td>{{}}</td>
+                            <!--<td>{{}}</td>-->
+                            <td>{{r.agence.nomAgence}}</td>
                             <td>{{r.texte}}</td>
                         </tr>
                     </tbody>
@@ -71,7 +79,7 @@
               </div>
               </div>
               </div>
-              </div> -->
+              </div> 
         </div>
     </div>
 </div>
