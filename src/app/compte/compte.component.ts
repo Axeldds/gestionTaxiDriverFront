@@ -35,6 +35,10 @@ export class CompteComponent implements OnInit {
       this.findAllUtil();
       this.user = new Utilisateur();
     })
+    this.clientService.save(this.client).subscribe(() => {
+      this.findAllClient();
+      this.client = new Client();
+    })
   }
 
   findAllClient(){
@@ -43,12 +47,5 @@ export class CompteComponent implements OnInit {
 
   deleteClient(id:number){
     this.clientService.delete(id).subscribe(() => {this.findAllClient()})
-  }
-
-  saveClient(){
-    this.clientService.save(this.client).subscribe(() => {
-      this.findAllClient();
-      this.client = new Client();
-    })
   }
 }
