@@ -13,6 +13,7 @@ export class ReclamationComponent implements OnInit {
   reclamations!: any[];
   agences!: any[];
   reclamation: Reclamation=new Reclamation();
+  agence: Agence=new Agence();
 
   constructor(private reclamationService:ReclamationService, private agenceService:AgenceService) { }
 
@@ -24,7 +25,7 @@ export class ReclamationComponent implements OnInit {
     this.reclamationService.findAll().subscribe(data => {this.reclamations = data});
   }
   findAllAgence(){
-    this.agenceService.findAll().subscribe(data => {this.agences = data; console.log("les agences"+this.agences)});
+    this.agenceService.findAll().subscribe(data => {this.agences = data});
   }
 
   deleteReclamation(id:number){
