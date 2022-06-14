@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Agence } from 'app/modules/agence';
 import { AgenceService } from 'app/services/agence.service';
+import { ResponsableService } from 'app/services/responsable.service';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-agence',
@@ -9,17 +11,23 @@ import { AgenceService } from 'app/services/agence.service';
 })
 export class AgenceComponent implements OnInit {
 
+  responsables!:any[];
   agences!: any[];
   agence: Agence = new Agence;
 
-  constructor(private agenceService: AgenceService) { }
+  constructor(private agenceService: AgenceService, private responsableService:ResponsableService) { }
 
   ngOnInit() {
     this.findAllAgence()
+    this.findAllResponsable()
   }
 
   findAllAgence(){
     this.agenceService.findAll().subscribe(data =>{this.agences=data});
+  }
+
+  findAllResponsable(){
+    this.responsableService.findAll().subscribe(data =>{this.responsables=data});
   }
 
   deleteAgence(id:number){

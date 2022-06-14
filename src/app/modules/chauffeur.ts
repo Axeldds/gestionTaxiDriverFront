@@ -1,3 +1,4 @@
+import { Agence } from "./agence";
 import { Taxi } from "./taxi";
 
 export class Chauffeur {
@@ -6,4 +7,5 @@ export class Chauffeur {
     prenomChauffeur!:string;
     age!:number;
     taxi!:Taxi;
+    agence!: Agence;
 }
