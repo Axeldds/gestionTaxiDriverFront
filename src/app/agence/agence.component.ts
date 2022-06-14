@@ -27,7 +27,7 @@ export class AgenceComponent implements OnInit {
   }
 
   findAllResponsable(){
-    this.responsableService.findAll().subscribe(data =>{this.responsables=data});
+    this.responsableService.findAll().subscribe(data =>{this.responsables=data; console.log("les responsables"+this.responsables)});
   }
 
   deleteAgence(id:number){
