@@ -28,7 +28,7 @@
                         <div class="form-group">
                             <label>Responsable Agence</label>
                             <select name="responsables" [(ngModel)]="agence.resp">
-                                <option *ngFor="let p of responsables" value="p">{{p.nomResponsable}}</option>
+                                <option *ngFor="let p of responsables" [ngValue]="p">{{p.nomResponsable}}</option>
                             </select>
                         </div>
                     </div>
