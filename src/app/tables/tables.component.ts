@@ -57,9 +57,10 @@ export class TablesComponent implements OnInit {
 
       updateChauffeur(id:number){
         this.chauffeurService.update(id).subscribe(() => {
-          this.chauffeurService.save(this.chauffeur);
-          this.findAllChauffeur();
-          this.chauffeur= new Chauffeur();
+          if (this.chauffeur.taxi.idTaxi !== null){
+            this.chauffeur.taxi.idTaxi == this.chauffeur.taxi.idTaxi
+            this.chauffeur.taxi.idTaxi = null     
+          }
         });
       }
       saveTaxi(){

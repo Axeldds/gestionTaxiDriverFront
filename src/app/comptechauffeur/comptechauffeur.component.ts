@@ -6,6 +6,7 @@ import { Utilisateur } from 'app/modules/utilisateur';
 import { ChauffeurService } from 'app/services/chauffeur.service';
 import { TaxiService } from 'app/services/taxi.service';
 import { UtilisateurService } from 'app/services/utilisateur.service';
+import { analytics } from 'googleapis/build/src/apis/analytics';
 
 @Component({
   selector: 'app-comptechauffeur',
@@ -26,8 +27,12 @@ export class ComptechauffeurComponent implements OnInit {
 
   ngOnInit() {
     this.findAll();
+    this.findAllTaxi();
   }
 
+  findAllTaxi(){
+    this.taxiService.findAll().subscribe(data => {this.taxis = data});
+  }
   findAll(){
     this.chauffeurService.findAll().subscribe(data => {this.chauffeurs = data})
   }
@@ -45,9 +50,10 @@ export class ComptechauffeurComponent implements OnInit {
 
   updateChauffeur(id:number){
     this.chauffeurService.update(id).subscribe(() => {
-      this.chauffeurService.save(this.newChauffeur);
-      this.findAll();
-      this.chauffeur=new Chauffeur();
+     if (this.chauffeur.taxi.idTaxi !== null){
+        this.chauffeur.taxi.idTaxi == this.chauffeur.taxi.idTaxi
+        this.chauffeur.taxi.idTaxi = null     
+      }
     });
   }
 
@@ -59,10 +65,6 @@ export class ComptechauffeurComponent implements OnInit {
     this.chauffeurService.save(this.chauffeur).subscribe(()=> {
       this.findAll();
       this.chauffeur=new Chauffeur();
-    })
-    this.taxiService.save(this.taxi).subscribe(() => {
-      this.findAll();
-      this.taxi=new Taxi();
     })
   }
 }

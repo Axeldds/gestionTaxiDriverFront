@@ -29,7 +29,14 @@
                             <label>Prenom</label>
                             <input type="text" class="form-control" placeholder="Prenom" [(ngModel)]="chauffeur.prenomChauffeur" name="prenomChauffeur">
                         </div>
+                    </div> 
+                    <div class="col-md-6">
+                        <label cLabel>IdTaxi</label>
+                        <select name="taxis" [(ngModel)]="chauffeur.taxi">
+                            <option  *ngFor="let t of taxis" [ngValue]="t">{{t.idTaxi}}</option>
+                        </select>
                     </div>
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Age</label>
@@ -37,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-
+               
                 <!--<div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
