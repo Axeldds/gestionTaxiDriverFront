@@ -6,20 +6,6 @@
         <div class="content">
             <form (ngSubmit)="saveReclamation()">
                 <div class="row"> 
-                    <!--
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Nom</label>
-                            <input type="text" class="form-control" placeholder="Nom">
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Prenom</label>
-                            <input type="text" class="form-control" placeholder="Prenom">
-                        </div>
-                    </div>
-                    -->
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Agence</label>
@@ -28,7 +14,6 @@
                             </select>
                         </div>
                     </div>
-                
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group">
@@ -60,7 +45,7 @@
                     <thead>
                         <tr>
                             <th>Id Réclamation</th>
-                            <!--<th>Id Client</th>-->
+                            <!--<th>Id Client</th> (a récupérer depuis l'utilisateur connecté)-->
                             <th>Agence</th>
                             <th>Réclamation</th>
                         </tr>
