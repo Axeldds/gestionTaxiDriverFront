@@ -38,6 +38,13 @@
                     </div>
 
                     <div class="col-md-6">
+                        <label cLabel>Id Agence</label>
+                        <select name="agences" [(ngModel)]="chauffeur.agence">
+                            <option *ngFor="let e of agences" [ngValue]="e">{{e.idAgence}}</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label>Age</label>
                             <input type="number" class="form-control" placeholder="Age" [(ngModel)]="chauffeur.age" name="age">

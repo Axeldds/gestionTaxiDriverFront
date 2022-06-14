@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular';
+import { Agence } from 'app/modules/agence';
 import { Chauffeur } from 'app/modules/chauffeur';
 import { Taxi } from 'app/modules/taxi';
 import { AgenceService } from 'app/services/agence.service';
@@ -36,21 +37,24 @@ export class TablesComponent implements OnInit {
     agences!:any[];
     chauffeur: Chauffeur=new Chauffeur();
     taxi: Taxi=new Taxi();
+    agence: Agence=new Agence();
 
   constructor(private chauffeurService:ChauffeurService, private taxiService:TaxiService, private agenceService:AgenceService) { }
 
   ngOnInit() {
     this.findAllChauffeur();
     this.findAllTaxi();
+    this.findAllAgence();
+  }
+
+  findAllAgence(){
+    this.agenceService.findAll().subscribe(data => {this.agences = data});
   }
     findAllTaxi() {
         this.taxiService.findAll().subscribe(data => {this.taxis = data});
     }
     findAllChauffeur() {
         this.chauffeurService.findAll().subscribe(data => {this.chauffeurs = data});
-    }
-    findAllAgence(){
-      this.agenceService.findAll().subscribe(data=>{this.agences = data})
     }
 
       deleteTaxi(id:number){

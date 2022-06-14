@@ -1,8 +1,10 @@
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
+import { Agence } from 'app/modules/agence';
 import { Chauffeur } from 'app/modules/chauffeur';
 import { Taxi } from 'app/modules/taxi';
 import { Utilisateur } from 'app/modules/utilisateur';
+import { AgenceService } from 'app/services/agence.service';
 import { ChauffeurService } from 'app/services/chauffeur.service';
 import { TaxiService } from 'app/services/taxi.service';
 import { UtilisateurService } from 'app/services/utilisateur.service';
@@ -22,12 +24,15 @@ export class ComptechauffeurComponent implements OnInit {
   taxis!:[];
   taxi: Taxi=new Taxi();
   newChauffeur: Chauffeur=new Chauffeur();
+  agences!: any[];
+  agence: Agence=new Agence();
 
-  constructor(private chauffeurService:ChauffeurService, private utilisateurService:UtilisateurService, private taxiService:TaxiService) { }
+  constructor(private chauffeurService:ChauffeurService, private utilisateurService:UtilisateurService, private taxiService:TaxiService, private agenceService:AgenceService) { }
 
   ngOnInit() {
     this.findAll();
     this.findAllTaxi();
+    this.findAllAgence();
   }
 
   findAllTaxi(){
@@ -35,6 +40,10 @@ export class ComptechauffeurComponent implements OnInit {
   }
   findAll(){
     this.chauffeurService.findAll().subscribe(data => {this.chauffeurs = data})
+  }
+
+  findAllAgence(){
+    this.agenceService.findAll().subscribe(data => {this.agences = data})
   }
 
   deleteChauffeur(id:number){
