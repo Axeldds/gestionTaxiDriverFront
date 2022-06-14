@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular';
+import { Agence } from 'app/modules/agence';
 import { Chauffeur } from 'app/modules/chauffeur';
 import { Taxi } from 'app/modules/taxi';
+import { AgenceService } from 'app/services/agence.service';
 import { ChauffeurService } from 'app/services/chauffeur.service';
 import { TaxiService } from 'app/services/taxi.service';
 
@@ -33,12 +35,19 @@ export class TablesComponent implements OnInit {
     taxis!: any[];
     chauffeur: Chauffeur=new Chauffeur();
     taxi: Taxi=new Taxi();
+    agences!: any[];
+    agence: Agence=new Agence();
 
-  constructor(private chauffeurService:ChauffeurService, private taxiService:TaxiService) { }
+  constructor(private chauffeurService:ChauffeurService, private taxiService:TaxiService, private agenceService:AgenceService) { }
 
   ngOnInit() {
     this.findAllChauffeur();
     this.findAllTaxi();
+    this.findAllAgence();
+  }
+
+  findAllAgence(){
+    this.agenceService.findAll().subscribe(data => {this.agences = data});
   }
     findAllTaxi() {
         this.taxiService.findAll().subscribe(data => {this.taxis = data});
