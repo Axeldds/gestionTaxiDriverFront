@@ -16,25 +16,21 @@
                                         <th>Prenom</th>
                                         <th>Marque</th>
                                         <th>Modèle</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let c of chauffeurs">
-                                        <td>{{c.idChauffeur}}</td>
-                                        <td>{{c.nomChauffeur}}</td>
-                                        <td>{{c.prenomChauffeur}}</td>
-                                        <td>{{c.taxi.marque}}</td>
-                                        <td>{{c.taxi.modele}}</td>
+                                    <tr *ngFor="let f of chauffeurs">
+                                        <td>{{f.idChauffeur}}</td>
+                                        <td>{{f.nomChauffeur}}</td>
+                                        <td>{{f.prenomChauffeur}}</td>
+                                        <td>{{f.taxi.marque}}</td>
+                                        <td>{{f.taxi.modele}}</td>
                                     </tr>
                                 </tbody>
                           </table>
-
                     </div>
                 </div>
-            </div>
-            <div>
-             <full-calendar *ngIf='calendarVisible' [options]="calendarOptions"
-                ></full-calendar>
             </div>
             <!--
             <div class="col-md-12">
