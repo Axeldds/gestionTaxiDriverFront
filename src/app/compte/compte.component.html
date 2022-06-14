@@ -21,54 +21,51 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Nom</label>
-                            <input type="text" class="form-control" placeholder="Nom">
+                            <input type="text" class="form-control" placeholder="Nom" [(ngModel)]="client.nomClient" name="nomClient">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Prenom</label>
-                            <input type="text" class="form-control" placeholder="Prenom">
+                            <input type="text" class="form-control" placeholder="Prenom" [(ngModel)]="client.prenomClient" name="prenomClient">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Sexe</label>
-                            <br>
-                            <input type="radio"><label>Femme</label>
-                            <br>
-                            <input type="radio"><label>Homme</label>
+                            <input type="text" class="form-control" placeholder="Sexe" [(ngModel)]="client.sexe" name="sexe">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Age</label>
-                            <input type="number" class="form-control" placeholder="Age">
+                            <input type="number" class="form-control" placeholder="Age" [(ngModel)]="client.age" name="age">
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
+                <!--<div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Adresse</label>
                             <input type="text" class="form-control" placeholder="Adresse">
                         </div>
                     </div>
-                </div>
+                </div>-->
 
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>Ville</label>
-                            <input type="text" class="form-control" placeholder="Ville">
+                            <input type="text" class="form-control" placeholder="Ville" [(ngModel)]="client.ville" name="ville">
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <!--<div class="col-md-4">
                         <div class="form-group">
                             <label>Code postal</label>
                             <input type="number" class="form-control" placeholder="ZIP Code">
                         </div>
-                    </div>
+                    </div>-->
                 </div>
 
                 <!-- <div class="row">
