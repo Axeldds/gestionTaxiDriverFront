@@ -4,16 +4,16 @@
             <h4 class="title">Nouveau Compte Responsable</h4>
         </div>
         <div class="content">
-            <form>
+            <form (ngSubmit)="save()">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>Username</label>
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input type="text" class="form-control" placeholder="Username" [(ngModel)]="utilisateur.username">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="text"  class ="form-control" placeholder="Password">
+                            <input type="text"  class ="form-control" placeholder="Password" [(ngModel)]="utilisateur.password">
                         </div>
                     </div>
                 </div>
@@ -21,13 +21,13 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Nom</label>
-                            <input type="text" class="form-control" placeholder="Nom">
+                            <input type="text" class="form-control" placeholder="Nom" [(ngModel)]="responsable.nomResponsable">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Prenom</label>
-                            <input type="text" class="form-control" placeholder="Prenom">
+                            <input type="text" class="form-control" placeholder="Prenom" [(ngModel)]="responsable.prenomResponsable">
                         </div>
                     </div>
                 </div>
