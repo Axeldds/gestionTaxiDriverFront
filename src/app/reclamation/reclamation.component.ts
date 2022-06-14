@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Agence } from 'app/modules/agence';
 import { Reclamation } from 'app/modules/reclamation';
+import { AgenceService } from 'app/services/agence.service';
 import { ReclamationService } from 'app/services/reclamation.service';
 
 @Component({
@@ -9,15 +11,20 @@ import { ReclamationService } from 'app/services/reclamation.service';
 })
 export class ReclamationComponent implements OnInit {
   reclamations!: any[];
+  agences!: any[];
   reclamation: Reclamation=new Reclamation();
 
-  constructor(private reclamationService:ReclamationService) { }
+  constructor(private reclamationService:ReclamationService, private agenceService:AgenceService) { }
 
   ngOnInit(): void {
     this.findAllReclamation();
+    this.findAllAgence();
   }
   findAllReclamation(){
     this.reclamationService.findAll().subscribe(data => {this.reclamations = data});
+  }
+  findAllAgence(){
+    this.agenceService.findAll().subscribe(data => {this.agences = data; console.log("les agences"+this.agences)});
   }
 
   deleteReclamation(id:number){
