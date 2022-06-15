@@ -1,3 +1,4 @@
+import { Chauffeur } from "./chauffeur";
 import { Reclamation } from "./reclamation";
 import { ResponsableAgence } from "./responsable-agence";
 
@@ -8,4 +9,5 @@ export class Agence {
     chiffreAffaire!:number;
     resp!:ResponsableAgence;
     reclamations!:Reclamation[];
+    chauffers!: Chauffeur[];
 }

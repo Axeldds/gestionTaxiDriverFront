@@ -10,12 +10,12 @@ import { TaxiService } from 'app/services/taxi.service';
 export class TaxiComponent implements OnInit {
 
   taxis!:any [];
-  taxi: Taxi = new Taxi;
+  taxi: Taxi = new Taxi();
 
   constructor(private taxiService:TaxiService) { }
 
   ngOnInit(){
-    this.findAllTaxi()
+    this.findAllTaxi();
   }
 
   findAllTaxi(){

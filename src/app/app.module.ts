@@ -23,9 +23,27 @@ import { ComptechauffeurComponent } from './comptechauffeur/comptechauffeur.comp
 import { TaxiComponent } from './taxi/taxi.component';
 import { AnnonceComponent } from './annonce/annonce.component';
 
+import { BrowserModule } from '@angular/platform-browser';
+import { AgmCoreModule } from '@agm/core';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+import interactionPlugin from '@fullcalendar/interaction';
+import { AgenceComponent } from './agence/agence.component';
+import { LoginComponent } from './login/login.component';
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  timeGridPlugin,
+  listPlugin,
+  interactionPlugin
+]);
+
 
 @NgModule({
   imports: [
+    FullCalendarModule,
     BrowserAnimationsModule,
     FormsModule,
     RouterModule,
@@ -34,6 +52,10 @@ import { AnnonceComponent } from './annonce/annonce.component';
     FooterModule,
     SidebarModule,
     AppRoutingModule,
+    BrowserModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCN913MNvahA0-e53Jr9o4fg9VqdFuyTwo'
+    })
   ],
   declarations: [
     AppComponent,
@@ -48,6 +70,8 @@ import { AnnonceComponent } from './annonce/annonce.component';
     CompteadministrateurComponent,
     TaxiComponent,
     AnnonceComponent,
+    AgenceComponent,
+    LoginComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

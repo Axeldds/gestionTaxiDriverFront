@@ -48,9 +48,15 @@
                         <div class="clearfix"></div>
                     </form>
                 </div>
+                    <agm-map [latitude]="latitude" [longitude]="longitude">
+                        <agm-marker
+                          [latitude]="latitude"
+                          [longitude]="longitude">
+                        </agm-marker>
+                      </agm-map>               
             </div>
             <div id="avisEtStats">
-                <div class="card" id="stats">
+                <!--<div class="card" id="stats">
                     <div class="header">
                     </div>
                     <h3 class="titleavis">Statistiques Clients</h3>
@@ -65,7 +71,7 @@
                   [footerIconClass]="'fa fa-history'"
                   [footerText]="'Updated 3 minutes ago'">
                     </lbd-chart>
-                </div>
+                </div>-->
                 <div class="card" id="avis">
                     <div class="header">
                     </div>

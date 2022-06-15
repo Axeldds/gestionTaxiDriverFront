@@ -29,7 +29,6 @@ import { HttpClientModule } from '@angular/common/http';
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=YOUR_KEY_HERE'})
   ],
   declarations: [
-    HomeComponent,
     UserComponent,
     TablesComponent,
     TypographyComponent,

@@ -4,16 +4,16 @@
             <h4 class="title">Nouveau Compte Chauffeur</h4>
         </div>
         <div class="content">
-            <form>
+            <form (ngSubmit)="saveUtilisateur()">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>Username</label>
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input type="text" class="form-control" placeholder="Username" [(ngModel)]="utilisateur.username" name="username">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="text"  class ="form-control" placeholder="Password">
+                            <input type="text"  class ="form-control" placeholder="Password" [(ngModel)]="utilisateur.password" name="password">
                         </div>
                     </div>
                 </div>
@@ -21,32 +21,37 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Nom</label>
-                            <input type="text" class="form-control" placeholder="Nom">
+                            <input type="text" class="form-control" placeholder="Nom" [(ngModel)]="chauffeur.nomChauffeur" name="nomChauffeur">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Prenom</label>
-                            <input type="text" class="form-control" placeholder="Prenom">
+                            <input type="text" class="form-control" placeholder="Prenom" [(ngModel)]="chauffeur.prenomChauffeur" name="prenomChauffeur">
                         </div>
+                    </div> 
+                    <div class="col-md-6">
+                        <label cLabel>IdTaxi</label>
+                        <select name="taxis" [(ngModel)]="chauffeur.taxi">
+                            <option  *ngFor="let t of taxis" [ngValue]="t">{{t.idTaxi}}</option>
+                        </select>
                     </div>
+
+                    <div class="col-md-6">
+                        <label cLabel>Id Agence</label>
+                        <select name="agences" [(ngModel)]="chauffeur.agence">
+                            <option *ngFor="let e of agences" [ngValue]="e">{{e.idAgence}}</option>
+                        </select>
+                    </div>
+
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Age</label>
-                            <input type="number" class="form-control" placeholder="Age">
+                            <input type="number" class="form-control" placeholder="Age" [(ngModel)]="chauffeur.age" name="age">
                         </div>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Taxi</label>
-                            <input type="text" class="form-control" placeholder="Taxi">
-                        </div>
-                    </div>
-                </div>
-
+               
                 <!--<div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
