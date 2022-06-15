@@ -1,4 +1,14 @@
-<ul>
-    <li *ngFor="let chauff of chauffeurs">{{chauff.nomChauffeur}},{{chauff.reservations.dateDebut}}
-    </li>
-</ul>
+<table>
+    <tr>
+        <td>Nom Chauffeur</td>
+        <td>Prenom Chauffeur</td>
+        <td>Date Debut</td>
+        <td>Date Fin</td>
+    </tr>
+    <tr *ngFor="let chauff of chauffeurs">
+        <td>{{chauff.nomChauffeur}}</td>
+        <td>{{chauff.prenomChauffeur}}</td>
+        <td>{{chauff.reservation.dateDebut}}</td>
+        <td>{{chauff.reservation.dateFin}}</td>
+    </tr>
+</table>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chauffeur } from 'app/modules/chauffeur';
+import { Reservation } from 'app/modules/reservation';
 import { ChauffeurService } from 'app/services/chauffeur.service';
 import { ReservationService } from 'app/services/reservation.service';
 
@@ -12,10 +13,12 @@ export class PlanningComponent implements OnInit {
   reservations!:any[];
   chauffeurs!: any[];
   chauffeur: Chauffeur=new Chauffeur();
+  reservation: Reservation=new Reservation();
   constructor(private chauffeurService:ChauffeurService, private reservationService:ReservationService) { }
 
   ngOnInit(): void {
     this.findAllChauffeur();
+    this.findAllReservation();
   }
 
   findAllChauffeur() {
