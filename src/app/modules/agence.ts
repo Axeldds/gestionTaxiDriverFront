@@ -9,5 +9,5 @@ export class Agence {
     chiffreAffaire!:number;
     resp!:ResponsableAgence;
     reclamations!:Reclamation[];
-    chauffers!: Chauffeur[];
+    chauffeurs!: Chauffeur[];
 }
