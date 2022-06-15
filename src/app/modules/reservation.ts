@@ -9,5 +9,5 @@ export class Reservation {
     prix!:number;
     client!:Client;
     trajets!:Trajet[];
-    annonces!:Annonce[];
+    annonce!:Annonce;
 }

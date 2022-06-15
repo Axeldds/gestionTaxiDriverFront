@@ -6,6 +6,7 @@ export class Annonce {
     dateAnnonce!:Date;
     reduction!:number;
     description!:string;
+    code!:String;
     responsableAgence!:ResponsableAgence;
-    reservation!:Reservation;
+    reservations!:Reservation[];
 }

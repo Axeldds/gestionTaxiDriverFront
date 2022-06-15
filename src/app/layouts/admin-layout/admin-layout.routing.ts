@@ -41,7 +41,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'avis', component:AvisComponent},
     { path: 'taxi' , component:TaxiComponent},
     { path: 'reclamation',     component: ReclamationComponent},
-    { path: 'annonce',         component: AnnonceComponent}
+    { path: 'annonce',         component: AnnonceComponent},
     { path: 'agence',   component: AgenceComponent},
     { path: 'login', component:LoginComponent}
 ];
