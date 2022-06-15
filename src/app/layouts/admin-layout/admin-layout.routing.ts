@@ -21,6 +21,7 @@ import { TaxiComponent } from 'app/taxi/taxi.component';
 import { ReclamationComponent } from 'app/reclamation/reclamation.component';
 import { AgenceComponent } from 'app/agence/agence.component';
 import { LoginComponent } from 'app/login/login.component';
+import { PlanningComponent } from 'app/planning/planning.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'accueil',        component: HomeComponent },
@@ -41,5 +42,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'taxi' , component:TaxiComponent},
     { path: 'reclamation',     component: ReclamationComponent},
     { path: 'agence',   component: AgenceComponent},
-    { path: 'login', component:LoginComponent}
+    { path: 'login', component:LoginComponent},
+    {path: 'planning', component: PlanningComponent}
 ];
