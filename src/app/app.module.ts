@@ -21,6 +21,7 @@ import { CompteresponsableComponent } from './compteresponsable/compteresponsabl
 import { CompteadministrateurComponent } from './compteadministrateur/compteadministrateur.component';
 import { ComptechauffeurComponent } from './comptechauffeur/comptechauffeur.component';
 import { TaxiComponent } from './taxi/taxi.component';
+import { AnnonceComponent } from './annonce/annonce.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { TaxiComponent } from './taxi/taxi.component';
     ComptechauffeurComponent,
     CompteadministrateurComponent,
     TaxiComponent,
+    AnnonceComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
