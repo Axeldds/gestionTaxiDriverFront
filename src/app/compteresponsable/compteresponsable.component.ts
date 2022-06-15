@@ -4,6 +4,8 @@ import { Utilisateur } from 'app/modules/utilisateur';
 import { ResponsableService } from 'app/services/responsable.service';
 import { UtilisateurService } from 'app/services/utilisateur.service';
 
+declare var $:any;
+
 @Component({
   selector: 'app-compteresponsable',
   templateUrl: './compteresponsable.component.html',
@@ -43,4 +45,21 @@ export class CompteresponsableComponent implements OnInit {
       this.utilisateur = new Utilisateur
     })
   }
+
+  showNotification(from, align){
+    const type = ['success'];
+
+    var color = Math.floor((Math.random() * 4) + 1);
+    $.notify({
+        icon: "pe-7s-gift",
+        message: "Compte crée ! Bienvenue à toi chef"
+    },{
+        type: type[color],
+        timer: 1000,
+        placement: {
+            from: from,
+            align: align
+        }
+    });
+}
 }

@@ -10,6 +10,8 @@ import { TaxiService } from 'app/services/taxi.service';
 import { UtilisateurService } from 'app/services/utilisateur.service';
 import { analytics } from 'googleapis/build/src/apis/analytics';
 
+declare var $:any;
+
 @Component({
   selector: 'app-comptechauffeur',
   templateUrl: './comptechauffeur.component.html',
@@ -76,4 +78,20 @@ export class ComptechauffeurComponent implements OnInit {
       this.chauffeur=new Chauffeur();
     })
   }
+  showNotification(from, align){
+    const type = ['success'];
+
+    var color = Math.floor((Math.random() * 4) + 1);
+    $.notify({
+        icon: "pe-7s-gift",
+        message: "Compte crée ! Bienvenue au nouveau Samy Naceri de l'entreprise"
+    },{
+        type: type[color],
+        timer: 1000,
+        placement: {
+            from: from,
+            align: align
+        }
+    });
+}
 }
