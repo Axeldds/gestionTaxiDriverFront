@@ -22,6 +22,7 @@ import { ReclamationComponent } from 'app/reclamation/reclamation.component';
 import { AnnonceComponent } from 'app/annonce/annonce.component';
 import { AgenceComponent } from 'app/agence/agence.component';
 import { LoginComponent } from 'app/login/login.component';
+import { PlanningComponent } from 'app/planning/planning.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'accueil',        component: HomeComponent },
@@ -43,5 +44,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'reclamation',     component: ReclamationComponent},
     { path: 'annonce',         component: AnnonceComponent},
     { path: 'agence',   component: AgenceComponent},
-    { path: 'login', component:LoginComponent}
+    { path: 'login', component:LoginComponent},
+    {path: 'planning', component: PlanningComponent}
 ];

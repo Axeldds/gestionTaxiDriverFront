@@ -1,4 +1,5 @@
 import { Agence } from "./agence";
+import { Reservation } from "./reservation";
 import { Taxi } from "./taxi";
 import { Utilisateur } from "./utilisateur";
 
@@ -9,4 +10,5 @@ export class Chauffeur {
     age!:number;
     taxi!:Taxi;
     agence!: Agence;
+    reservations!: Reservation[];
 }

@@ -32,6 +32,7 @@ import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
 import { AgenceComponent } from './agence/agence.component';
 import { LoginComponent } from './login/login.component';
+import { PlanningComponent } from './planning/planning.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -72,6 +73,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     AnnonceComponent,
     AgenceComponent,
     LoginComponent,
+    PlanningComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
