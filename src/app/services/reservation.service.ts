@@ -23,4 +23,8 @@ export class ReservationService {
   public save(reservation:any):Observable<any>{
     return this.httpClient.post(this.baseURL, reservation);
   }
+
+  public findByDateDebut(dateDebut:Date):Observable<any>{
+    return this.httpClient.get(this.baseURL+"/dateDebut/"+dateDebut);
+  }
 }
