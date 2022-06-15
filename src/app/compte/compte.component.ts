@@ -4,6 +4,8 @@ import { Utilisateur } from 'app/modules/utilisateur';
 import { ClientService } from 'app/services/client.service';
 import { UtilisateurService } from 'app/services/utilisateur.service';
 
+declare var $:any;
+
 @Component({
   selector: 'app-compte',
   templateUrl: './compte.component.html',
@@ -48,4 +50,21 @@ export class CompteComponent implements OnInit {
   deleteClient(id:number){
     this.clientService.delete(id).subscribe(() => {this.findAllClient()})
   }
+
+  showNotification(from, align){
+    const type = ['success'];
+
+    var color = Math.floor((Math.random() * 4) + 1);
+    $.notify({
+        icon: "pe-7s-gift",
+        message: "Compte crée ! Bienvenue a toi jeune Client"
+    },{
+        type: type[color],
+        timer: 1000,
+        placement: {
+            from: from,
+            align: align
+        }
+    });
+}
 }

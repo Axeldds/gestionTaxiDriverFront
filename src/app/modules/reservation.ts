@@ -12,4 +12,6 @@ export class Reservation {
     trajets!:Trajet[];
     annonces!:Annonce[];
     chauffeur!:Chauffeur[];
+    annonce!:Annonce;
+
 }
