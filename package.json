@@ -34,6 +34,7 @@
         "@fullcalendar/timegrid": "^5.11.0",
         "@ngui/map": "0.30.3",
         "@types/googlemaps": "^3.39.1",
+        "agm-direction": "^0.8.10",
         "animate.css": "4.1.1",
         "arrive": "2.4.1",
         "bootstrap": "3.3.7",
@@ -42,6 +43,7 @@
         "core-js": "3.8.1",
         "googleapis": "66.0.0",
         "jquery": "3.5.1",
+        "ngx-google-places-autocomplete": "^2.0.5",
         "perfect-scrollbar": "1.5.0",
         "rxjs": "^7.5.5",
         "zone.js": "~0.11.5"

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
 import * as Chartist from 'chartist';
+import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
 
 
 
@@ -10,9 +12,21 @@ import * as Chartist from 'chartist';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  latitude = 51.678418;
-  longitude = 7.809007;
-    
+  title;
+  latitude=null;
+  longitude=null;
+  latitude2=null;
+  longitude2=null;
+  zoom=10;
+  zoomin;
+
+
+  @ViewChild("placesRef") placesRef : GooglePlaceDirective;
+  options = {
+    types : [],
+    componentRestrictions: {country: 'FR'}
+  }
+
     public emailChartType: ChartType;
     public emailChartData: any;
     public emailChartLegendItems: LegendItem[];
@@ -28,9 +42,27 @@ export class HomeComponent implements OnInit {
     public activityChartOptions: any;
     public activityChartResponsive: any[];
     public activityChartLegendItems: LegendItem[];
+
+    public origin: any;
+    public destination: any;
+    public travelMode: google.maps.TravelMode;
+    public ds: google.maps.DirectionsService;
+    public dr: google.maps.DirectionsRenderer;
+
   constructor() { }
 
+
   ngOnInit() {
+
+      this.setCurrentLocation();
+      /*this.getDirection()*/
+      
+      this.ds = new google.maps.DirectionsService();
+      this.dr = new google.maps.DirectionsRenderer({
+        map: null,
+        suppressMarkers: true
+      })
+
       this.emailChartType = ChartType.Pie;
       this.emailChartData = {
         labels: ['62%', '32%', '6%'],
@@ -110,7 +142,39 @@ export class HomeComponent implements OnInit {
         { title: 'BMW 5 Series', imageClass: 'fa fa-circle text-danger' }
       ];
 
-
     }
+  
+  public handleAddressChange(address: Address) {
+      // Do some stuff
+      console.log(address);
+      console.log('Latitude : ' + address.geometry.location.lat());
+      console.log('Longitude : ' + address.geometry.location.lng());
+
+      this.latitude = address.geometry.location.lat();
+      this.longitude = address.geometry.location.lng();
+  }
+  public handleAddressChange2(address2: Address) {
+    // Do some stuff
+    console.log(address2);
+    console.log('Latitude : ' + address2.geometry.location.lat());
+    console.log('Longitude : ' + address2.geometry.location.lng());
+
+    this.latitude2 = address2.geometry.location.lat();
+    this.longitude2 = address2.geometry.location.lng();
+}
+  public setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.zoomin = 15;
+      })
+    }
+  }
+
+  /*getDirection() {
+    this.origin = { lat: this.latitude, lng: this.longitude };
+    this.destination = { lat: this.latitude2, lng: this.longitude2 };
+  }*/
 
 }
