@@ -1,14 +1,43 @@
+<div class="col-md-8">
+    <div class="card"><div class="card">
+        <div class="header">
+            <h4 class="title">Avis Clients</h4>
+            <p class="category">Vous trouverez ici la liste des avis</p>
+        </div>
+        <div class="content table-responsive table-full-width">
+            <div>
+                <form (ngSubmit)="onSubmitDate()">
+                    <label>Date Debut</label>
+                    <input type="date" [(ngModel)]="dateDebut" name="dateDebut">
+                <button type="submit" class="btn btn-info btn-fill pull-center">Trier</button>
+            </form>
+              </div>
+              <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <td>Date Debut</td>
+                            <td>Date Fin</td>
+                            <td>Nom Chauffeur</td>
+                            <td>Prenom Chauffeur</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let reserv of reservations">
+                            <td>{{reserv.dateDebut}}</td>
+                            <td>{{reserv.dateFin}}</td>
+                            <td>{{reserv.chauffeur.nomChauffeur}}</td>
+                            <td>{{reserv.chauffeur.prenomChauffeur}}</td>
+                            <td><button (click)="deleteReservation(reserv.idReservation)" class="btn btn-info btn-fill pull-center">Supprimer</button></td>
+                        </tr>
+                    </tbody>
+              </table>
+              
+        </div>
+    </div>
 <table>
-    <tr>
-        <td>Nom Chauffeur</td>
-        <td>Prenom Chauffeur</td>
-        <td>Date Debut</td>
-        <td>Date Fin</td>
-    </tr>
-    <tr *ngFor="let chauff of chauffeurs">
-        <td>{{chauff.nomChauffeur}}</td>
-        <td>{{chauff.prenomChauffeur}}</td>
-        <td>{{chauff.reservation.dateDebut}}</td>
-        <td>{{chauff.reservation.dateFin}}</td>
-    </tr>
+    
+    
 </table>
+</div>
+</div>
