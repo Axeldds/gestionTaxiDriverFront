@@ -21,6 +21,7 @@ import { CompteresponsableComponent } from './compteresponsable/compteresponsabl
 import { CompteadministrateurComponent } from './compteadministrateur/compteadministrateur.component';
 import { ComptechauffeurComponent } from './comptechauffeur/comptechauffeur.component';
 import { TaxiComponent } from './taxi/taxi.component';
+import { AnnonceComponent } from './annonce/annonce.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { AgmCoreModule } from '@agm/core';
@@ -69,6 +70,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ComptechauffeurComponent,
     CompteadministrateurComponent,
     TaxiComponent,
+    AnnonceComponent,
     AgenceComponent,
     LoginComponent,
     PlanningComponent,

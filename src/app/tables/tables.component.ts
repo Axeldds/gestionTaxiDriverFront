@@ -3,9 +3,11 @@ import { CalendarOptions } from '@fullcalendar/angular';
 import { Agence } from 'app/modules/agence';
 import { Chauffeur } from 'app/modules/chauffeur';
 import { Taxi } from 'app/modules/taxi';
+import { Utilisateur } from 'app/modules/utilisateur';
 import { AgenceService } from 'app/services/agence.service';
 import { ChauffeurService } from 'app/services/chauffeur.service';
 import { TaxiService } from 'app/services/taxi.service';
+import { UtilisateurService } from 'app/services/utilisateur.service';
 import { data } from 'jquery';
 
 declare interface TableData {
@@ -38,15 +40,21 @@ export class TablesComponent implements OnInit {
     chauffeur: Chauffeur=new Chauffeur();
     taxi: Taxi=new Taxi();
     agence: Agence=new Agence();
+    utilisateurs!: any[];
+    utilisateur: Utilisateur =new Utilisateur();
 
-  constructor(private chauffeurService:ChauffeurService, private taxiService:TaxiService, private agenceService:AgenceService) { }
+  constructor(private chauffeurService:ChauffeurService, private taxiService:TaxiService, private agenceService:AgenceService,private utilisateurService:UtilisateurService) { }
 
   ngOnInit() {
     this.findAllChauffeur();
     this.findAllTaxi();
     this.findAllAgence();
+    this.findAllUtilisateur();
   }
 
+  findAllUtilisateur(){
+    this.utilisateurService.findAll().subscribe(data => {this.utilisateurs = data});
+  }
   findAllAgence(){
     this.agenceService.findAll().subscribe(data => {this.agences = data});
   }
@@ -62,7 +70,8 @@ export class TablesComponent implements OnInit {
       }
 
       deleteChauffeur(id:number){
-        this.chauffeurService.delete(id).subscribe(() => {this.findAllChauffeur()})
+        this.chauffeurService.delete(id).subscribe(() => {this.findAllChauffeur()});
+        //this.utilisateurService.delete(id).subscribe(() => {this.findAllUtilisateur()});
       }
 
       updateChauffeur(id:number){
