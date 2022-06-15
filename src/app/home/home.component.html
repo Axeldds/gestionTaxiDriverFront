@@ -1,59 +1,101 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <!--<div class="col-md-4">
-                <lbd-chart
-                  [title]="'Email Statistics'"
-                  [subtitle]="'Last Campaign Performance'"
-                  [chartClass]="'ct-perfect-fourth'"
-                  [chartType]="emailChartType"
-                  [chartData]="emailChartData"
-                  [legendItems]="emailChartLegendItems"
-                  [withHr]="true"
-                  [footerIconClass]="'fa fa-clock-o'"
-                  [footerText]="'Campaign sent 2 days ago'">
-                </lbd-chart>
-            </div>-->
+            <div style="display: block">
+                <!--<chartist mdbChart
+                    [chartType]="chartType"
+                    [datasets]="chartDatasets"
+                    [labels]="chartLabels"
+                    [colors]="chartColors"
+                    [options]="chartOptions"
+                    [legend]="true"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)">
+                </chartist>-->
+            </div>
             <div class="card">
                 <div class="header">
                 </div>
                 <div class="content">
-                    <h3 class="trajet">Réservez votre trajet</h3>
-                    <form>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label>Départ</label>
-                                    <input type="text" class="form-control"  placeholder="Adresse de départ..." >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label>Arrivée</label>
-                                    <input type="text" class="form-control" placeholder="Adresse de dépôt...">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="form-group">
-                                    <label>Date</label>
-                                    <input type="text" class="form-control" placeholder="Date">
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-info btn-fill pull-left">Voir les offres</button>
-                        <div class="clearfix"></div>
-                    </form>
-                </div>
-                    <agm-map [latitude]="latitude" [longitude]="longitude">
-                        <agm-marker
-                          [latitude]="latitude"
-                          [longitude]="longitude">
-                        </agm-marker>
-                      </agm-map>               
+                        <table>
+                            <tr>
+                                <td class="reservation">
+                                    <form>
+                                        <h3 class="titleavis">Réservez votre trajet</h3>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label>Départ</label>
+                                                    <!--<input type="text" placeholder="Adresse de départ..." >-->
+                                                    <input type="text" placeholder="Adresse de départ..."
+                                                    ngx-google-places-autocomplete [options]='options' 
+                                                    #placesRef="ngx-places" 
+                                                    (onAddressChange)="handleAddressChange($event)"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label>Arrivée</label>
+                                                    <!--<input type="text" placeholder="Adresse de dépôt...">-->
+                                                    <input type="text" placeholder="Adresse de d'arrivée..."
+                                                    ngx-google-places-autocomplete [options]='options' 
+                                                    #placesRef="ngx-places" 
+                                                    (onAddressChange)="handleAddressChange2($event)"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="centrerdate">
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label>Date de début</label>
+                                                        <input type="date" placeholder="Date..">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <label>Date de fin</label><br>
+                                                        <input type="date" placeholder="Date...">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="centrerboutons"> 
+                                            <div class="row">
+                                                <div class="col-md-5">
+                                                    <button type="submit" class="btn btn-info btn-fill">Voir les offres</button>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <button type="submit" class="btn btn-info btn-fill">Calculer le trajet</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </td>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <td class="map">
+                                    <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
+                                        <agm-marker
+                                        [latitude]="latitude"
+                                        [longitude]="longitude">
+                                        </agm-marker>
+                                        <agm-marker
+                                        [latitude]="latitude2"
+                                        [longitude]="longitude2"
+                                        [agmFitBounds]="true">
+                                        </agm-marker>
+                                        <agm-direction 
+                                        [origin]="{ lat: this.latitude, lng: this.longitude }" 
+                                        [destination]="{ lat: this.latitude2, lng: this.longitude2 }">
+                                        </agm-direction>
+                                    </agm-map>
+                                </td>
+                            </tr>
+                        </table>         
+                </div>                   
             </div>
             <div id="avisEtStats">
                 <!--<div class="card" id="stats">
@@ -72,7 +114,7 @@
                   [footerText]="'Updated 3 minutes ago'">
                     </lbd-chart>
                 </div>-->
-                <div class="card" id="avis">
+                <!--<div class="card" id="avis">
                     <div class="header">
                     </div>
                     <div class="rating">
@@ -104,7 +146,7 @@
                             </div>
                         </div>
                     </form>
-                </div>
+                </div>-->
             </div>
         </div>
             <!--<div class="col-md-6">
