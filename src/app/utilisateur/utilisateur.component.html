@@ -1,1 +1,61 @@
-<p>utilisateur works!</p>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Les Clients</h4>
+                        <p class="category">Voici ci-dessous la liste de tous les clients qui utlisent le site Taxi Driver</p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                          <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Id Client</th>
+                                        <th>Nom</th>
+                                        <th>Prenom</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let c of clients">
+                                        <td>{{c.idClient}}</td>
+                                        <td>{{c.nomClient}}</td>
+                                        <td>{{c.prenomClient}}</td>
+                                        <td><button (click)="deleteClient(c.idClient)" class="btn btn-info btn-fill pull-center">Supprimer</button></td>
+                                    </tr>
+                                </tbody>
+                          </table>
+                    </div>
+                    
+                  <!--<div class="content table-responsive table-full-width">
+                    <table class="table table-hover table-striped">
+                          <thead>
+                              <tr>
+                                  <th>Id</th>
+                                  <th>Username</th>
+                                  <th>Password</th>
+                                  <th>Id Client</th>
+                                  <th>Nom</th>
+                                  <th>Prenom</th>
+                                  <th>Action</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let us of users">
+                                  <td>{{us.idUtilisateur}}</td>
+                                  <td>{{us.username}}</td>
+                                  <td>{{us.password}}</td>
+                                  <td>{{us.client.idClient}}</td>
+                                  <td>{{us.client.nomClient}}</td>
+                                  <td>{{us.client.prenomClient}}</td>
+                                  <td><button (click)="deleteUtilisateur(us.idUtilisateur)" class="btn btn-info btn-fill pull-center">Supprimer</button></td>
+                              </tr>
+                          </tbody>
+                    </table>
+              </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

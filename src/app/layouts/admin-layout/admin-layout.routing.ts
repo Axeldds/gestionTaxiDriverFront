@@ -23,6 +23,9 @@ import { AnnonceComponent } from 'app/annonce/annonce.component';
 import { AgenceComponent } from 'app/agence/agence.component';
 import { LoginComponent } from 'app/login/login.component';
 import { PlanningComponent } from 'app/planning/planning.component';
+import { ListechauffeurComponent } from 'app/listechauffeur/listechauffeur.component';
+import { ListeresposableComponent } from 'app/listeresposable/listeresposable.component';
+import { ListeadministrateurComponent } from 'app/listeadministrateur/listeadministrateur.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'accueil',        component: HomeComponent },
@@ -45,5 +48,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'annonce',         component: AnnonceComponent},
     { path: 'agence',   component: AgenceComponent},
     { path: 'login', component:LoginComponent},
-    {path: 'planning', component: PlanningComponent}
+    {path: 'planning', component: PlanningComponent},
+    {path:'listechauffeur', component:ListechauffeurComponent},
+    {path: 'listeresponsable', component: ListeresposableComponent},
+    {path: 'listeadministrateur', component: ListeadministrateurComponent}
 ];

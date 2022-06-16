@@ -33,8 +33,12 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { AgenceComponent } from './agence/agence.component';
 import { LoginComponent } from './login/login.component';
 import { PlanningComponent } from './planning/planning.component';
+import { ListechauffeurComponent } from './listechauffeur/listechauffeur.component';
+import { ListeresposableComponent } from './listeresposable/listeresposable.component';
+import { ListeadministrateurComponent } from './listeadministrateur/listeadministrateur.component';
 import { Observable } from 'rxjs';
 import { AppService } from './app.service';
+
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -86,6 +90,9 @@ export class XhrInterceptor implements HttpInterceptor{
     AgenceComponent,
     LoginComponent,
     PlanningComponent,
+    ListechauffeurComponent,
+    ListeresposableComponent,
+    ListeadministrateurComponent,
   ],
   providers: [
     AppService,
