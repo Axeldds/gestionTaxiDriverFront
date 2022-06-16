@@ -27,7 +27,7 @@ export class PlanningComponent implements OnInit {
     this.chauffeurService.findAll().subscribe(data => {this.chauffeurs = data});
 }
 
- /* findAllReservation(){
+  /*findAllReservation(){
     this.reservationService.findAll().subscribe(data=>{this.reservations=data});
   }*/
 
