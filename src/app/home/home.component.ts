@@ -3,6 +3,7 @@ import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
 import * as Chartist from 'chartist';
 import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 import { Address } from 'ngx-google-places-autocomplete/objects/address';
+import { UtilisateurService } from 'app/services/utilisateur.service';
 
 
 
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
   longitude2=null;
   zoom=10;
   zoomin;
-
+  utilisateurs!: any[];
 
   @ViewChild("placesRef") placesRef : GooglePlaceDirective;
   options = {
@@ -49,10 +50,12 @@ export class HomeComponent implements OnInit {
     public ds: google.maps.DirectionsService;
     public dr: google.maps.DirectionsRenderer;
 
-  constructor() { }
+  constructor(private utilisateurService:UtilisateurService) { }
 
 
   ngOnInit() {
+
+    this.findAllUtil();
 
       this.setCurrentLocation();
       /*this.getDirection()*/
@@ -177,4 +180,7 @@ export class HomeComponent implements OnInit {
     this.destination = { lat: this.latitude2, lng: this.longitude2 };
   }*/
 
+  findAllUtil(){
+    this.utilisateurService.findAll().subscribe(data => {this.utilisateurs = data})
+  }
 }
