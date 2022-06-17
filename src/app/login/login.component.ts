@@ -9,6 +9,7 @@ import { AppService } from 'app/app.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+
   credentials={username:'',password:''}
 
   constructor(private appService:AppService, private httpClient : HttpClient, private router : Router) { }

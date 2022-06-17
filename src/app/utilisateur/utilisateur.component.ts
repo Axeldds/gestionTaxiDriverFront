@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'app/app.service';
 import { Chauffeur } from 'app/modules/chauffeur';
 import { Client } from 'app/modules/client';
 import { Utilisateur } from 'app/modules/utilisateur';
@@ -18,7 +19,12 @@ export class UtilisateurComponent implements OnInit {
   client : Client = new Client();
   users!: any[];
   user: Utilisateur=new Utilisateur();
-  constructor(private utilisateurService:UtilisateurService, private clientService: ClientService, private chauffeurService: ChauffeurService) { }
+  responseAll: any;
+  isAdmin=false;
+  isClient=false;
+  isResp=false;
+  isChauffeur=false;
+  constructor(private utilisateurService:UtilisateurService, private clientService: ClientService, private chauffeurService: ChauffeurService, private appService:AppService) { }
 
   ngOnInit(){
     this.findAll();
@@ -42,6 +48,19 @@ export class UtilisateurComponent implements OnInit {
   }
   findAllClient(){
     this.clientService.findAll().subscribe(data=>{this.clients=data});
+  }
+
+  authenticated(){
+    return this.appService.authenticated; // false
+  }
+
+  authorities(){
+    console.log("isAdmin="+this.appService.isAdmin);
+    if(this.appService.isAdmin==true){
+      return false;
+    }else{
+      return true;
+    }
   }
   
 }
