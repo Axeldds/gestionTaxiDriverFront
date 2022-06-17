@@ -7,5 +7,5 @@ export class Avis {
     note!:number;
     commentaire!:string;
     clients!:Client[];
-    chauffeurs!:Chauffeur[];
+    chauffeur:Chauffeur = new Chauffeur();
 }
