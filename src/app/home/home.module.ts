@@ -4,7 +4,7 @@ import { AgmCoreModule } from '@agm/core';
 import { HomeComponent } from './home.component';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { AgmDirectionModule } from 'agm-direction';
-
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import { AgmDirectionModule } from 'agm-direction';
       libraries : ['places']
     }),
     GooglePlaceModule,
-    AgmDirectionModule
+    AgmDirectionModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [HomeComponent]

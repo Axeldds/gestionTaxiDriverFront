@@ -1,8 +1,8 @@
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
-            <div style="display: block">
-                <!--<chartist mdbChart
+            <!--<div style="display: block">
+                <chartist mdbChart
                     [chartType]="chartType"
                     [datasets]="chartDatasets"
                     [labels]="chartLabels"
@@ -11,13 +11,13 @@
                     [legend]="true"
                     (chartHover)="chartHovered($event)"
                     (chartClick)="chartClicked($event)">
-                </chartist>-->
-            </div>
+                </chartist>
+            </div>-->
             <div class="card">
-                <div class="header">
+                <div class="header1">
                 </div>
                 <div class="content">
-                        <table>
+                        <table class="card">
                             <tr>
                                 <td class="reservation">
                                     <form>
@@ -27,10 +27,11 @@
                                                 <div class="form-group">
                                                     <label>Départ</label>
                                                     <!--<input type="text" placeholder="Adresse de départ..." >-->
-                                                    <input type="text" placeholder="Adresse de départ..."
+                                                    <input type="text" class="form-control" placeholder="Adresse de départ..."
                                                     ngx-google-places-autocomplete [options]='options' 
                                                     #placesRef="ngx-places" 
-                                                    (onAddressChange)="handleAddressChange($event)"/>
+                                                    (onAddressChange)="handleAddressChange($event)"
+                                                    [(ngModel)]="trajet.depart" name="depart"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -39,37 +40,62 @@
                                                 <div class="form-group">
                                                     <label>Arrivée</label>
                                                     <!--<input type="text" placeholder="Adresse de dépôt...">-->
-                                                    <input type="text" placeholder="Adresse de d'arrivée..."
+                                                    <input type="text" class="form-control" placeholder="Adresse de d'arrivée..."
                                                     ngx-google-places-autocomplete [options]='options' 
                                                     #placesRef="ngx-places" 
-                                                    (onAddressChange)="handleAddressChange2($event)"/>
+                                                    (onAddressChange)="handleAddressChange2($event)"
+                                                    [(ngModel)]="trajet.arrivee" name="arrivee"/>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="centrerdate">
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <div class="form-group">
-                                                        <label>Date de début</label>
-                                                        <input type="date" placeholder="Date..">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <div class="form-group">
-                                                        <label>Date de fin</label><br>
-                                                        <input type="date" placeholder="Date...">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                       <div class="col-md-5">
+                                                            <div class="form-group">
+                                                                <label>Début</label>
+                                                                <input type="date" class="form-control" placeholder="Date.."
+                                                                [(ngModel)]="reservation.dateDebut" name="dateDebut">
+                                                            </div>
+                                                        </div> 
+                                                    </td>
+                                                    <td>
+                                                        <div class="col-md-5">
+                                                            <div class="form-group">
+                                                                <label>Fin</label><br>
+                                                                <input type="date" class="form-control" placeholder="Date..."
+                                                                [(ngModel)]="reservation.dateFin" name="dateFin">                                                        
+                                                            </div>                                                    
+                                                        </div>  
+                                                    </td>
+                                                    <td></td><td></td><td></td><td></td>
+                                                    <td>
+                                                        <div class="col-md-5">
+                                                            <div class="form-group">
+                                                                <label>Chauffeur</label><br>
+                                                                <select class="select1" name="chauffeurs"[(ngModel)]="utilisateur.chauffeur">
+                                                                    <option *ngFor="let c of chauffeurs" [ngValue]="c">{{c.prenomChauffeur}}</option>
+                                                                </select>
+                                                            </div>
+                                                         </div>  
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                                
+                                                
+                                               
+                                                <!--<div class="col-md-5">
+                                                    <label>Choisissez votre chauffeur</label><br>
+                                                    <select multiple name="" id=""></select>
+                                                </div>-->
                                         </div>
-                                        <div class="centrerboutons"> 
-                                            <div class="row">
-                                                <div class="col-md-5">
-                                                    <button type="submit" class="btn btn-info btn-fill">Voir les offres</button>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <button type="submit" class="btn btn-info btn-fill">Calculer le trajet</button>
-                                                </div>
+                                        <div> 
+                                            <div class="row" id="boutons">                                                
+                                                <button type="button" class="btn btn-info btn-fill" (click)="getDistance('top','center')">Simulez le prix du trajet</button> &nbsp;&nbsp;                                           
+                                                <button type="submit" class="btn btn-info btn-fill" (click)="showNotification('top','center');resetCurrentLocation()">Réservez</button> &nbsp;&nbsp;                                                                                      
+                                                <button class="btn btn-info btn-fill"><a href="#/annonce" class="boutonAnnonce">Voir les offres</a></button> 
+                                                <!--<input type="button"  value="Click Me!">-->                                        
                                             </div>
                                         </div>
                                     </form>
@@ -97,56 +123,62 @@
                         </table>         
                 </div>                   
             </div>
-            <div id="avisEtStats">
-                <!--<div class="card" id="stats">
-                    <div class="header">
+        </div>
+        <!--<div id="avisEtStats">
+            <div class="card" id="stats">
+                <div class="header">
+                </div>
+                <h3 class="titleavis">Statistiques Clients</h3>
+                <lbd-chart
+              [subtitle]="'24 Hours performance'"
+              [chartType]="hoursChartType"
+              [chartData]="hoursChartData"
+              [chartOptions]="hoursChartOptions"
+              [chartResponsive]="hoursChartResponsive"
+              [legendItems]="hoursChartLegendItems"
+              [withHr]="true"
+              [footerIconClass]="'fa fa-history'"
+              [footerText]="'Updated 3 minutes ago'">
+                </lbd-chart>
+            </div>
+        </div>--> 
+        <div class="row">
+            <div class="card" id="pub">
+                <div class="header2">
+                </div>
+                <h2><a class="titleavis" href="#/annonce">Offre aux nouveaux clients!!!!<br>-50% Offert sur votre premier trajet</a></h2>
+            </div>
+            <div class="card" id="avis">
+                <div class="header3">
+                </div>
+                <div class="rating">
+                    <h3 class="titleavis">Avis Clients</h3>
+                    <h5 class="soustitleavis">Vos avis sont importants!</h5>
+                    <div class="stars">
+                        <i class="fa fa-star gold"></i> &nbsp; &nbsp;
+                        <i class="fa fa-star gold"></i> &nbsp; &nbsp;
+                        <i class="fa fa-star gold"></i> &nbsp; &nbsp;
+                        <i class="fa fa-star"></i> &nbsp; &nbsp;
+                        <i class="fa fa-star"></i> &nbsp; &nbsp;
                     </div>
-                    <h3 class="titleavis">Statistiques Clients</h3>
-                    <lbd-chart
-                  [subtitle]="'24 Hours performance'"
-                  [chartType]="hoursChartType"
-                  [chartData]="hoursChartData"
-                  [chartOptions]="hoursChartOptions"
-                  [chartResponsive]="hoursChartResponsive"
-                  [legendItems]="hoursChartLegendItems"
-                  [withHr]="true"
-                  [footerIconClass]="'fa fa-history'"
-                  [footerText]="'Updated 3 minutes ago'">
-                    </lbd-chart>
-                </div>-->
-                <!--<div class="card" id="avis">
-                    <div class="header">
+                    <div class="form-group">
+                        <label>Trier</label> &nbsp; &nbsp;
+                        <select >
+                            <option></option>
+                            <option>1 étoile &#11088;</option>
+                            <option>2 étoiles &#11088; &#11088;</option>
+                            <option>3 étoiles &#11088; &#11088; &#11088;</option>
+                            <option>4 étoiles &#11088; &#11088; &#11088; &#11088;</option>
+                            <option>5 étoiles &#11088; &#11088; &#11088; &#11088; &#11088;</option>
+                        </select>
                     </div>
-                    <div class="rating">
-                        <h3 class="titleavis">Avis Clients</h3>
-                        <h5 class="soustitleavis">Vos avis sont importants!</h5>
-                        <div class="stars">
-                            <i class="fa fa-star gold"></i> &nbsp; &nbsp;
-                            <i class="fa fa-star gold"></i> &nbsp; &nbsp;
-                            <i class="fa fa-star gold"></i> &nbsp; &nbsp;
-                            <i class="fa fa-star"></i> &nbsp; &nbsp;
-                            <i class="fa fa-star"></i> &nbsp; &nbsp;
-                        </div>
-                        <div class="form-group">
-                            <label>Trier</label> &nbsp; &nbsp;
-                            <select >
-                                <option></option>
-                                <option>1 étoile &#11088;</option>
-                                <option>2 étoiles &#11088; &#11088;</option>
-                                <option>3 étoiles &#11088; &#11088; &#11088;</option>
-                                <option>4 étoiles &#11088; &#11088; &#11088; &#11088;</option>
-                                <option>5 étoiles &#11088; &#11088; &#11088; &#11088; &#11088;</option>
-                            </select>
+                </div>
+                <form>
+                    <div class="row">
+                        <div class="col-md-5">
                         </div>
                     </div>
-                    <form>
-                        <div class="row">
-                            <div class="col-md-5">
-                                
-                            </div>
-                        </div>
-                    </form>
-                </div>-->
+                </form>
             </div>
         </div>
             <!--<div class="col-md-6">
