@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCN913MNvahA0-e53Jr9o4fg9VqdFuyTwo',
       libraries : ['places']

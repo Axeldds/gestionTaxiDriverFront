@@ -11,7 +11,7 @@ export class Reservation {
     client!:Client;
     trajets!:Trajet[];
     annonces!:Annonce[];
-    chauffeur!:Chauffeur[];
+    chauffeur:Chauffeur = new Chauffeur();
     annonce!:Annonce;
 
 }

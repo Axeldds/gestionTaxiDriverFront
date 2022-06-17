@@ -11,4 +11,5 @@ export class Chauffeur {
     taxi!:Taxi;
     agence!: Agence;
     reservations!: Reservation[];
+    utilisateur!: Utilisateur;
 }

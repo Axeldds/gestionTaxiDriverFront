@@ -20,7 +20,7 @@
                         <table class="card">
                             <tr>
                                 <td class="reservation">
-                                    <form>
+                                    <form (ngSubmit)="saveReservation()">
                                         <h3 class="titleavis">Réservez votre trajet</h3>
                                         <div class="row">
                                             <div class="col-md-5">
@@ -74,8 +74,8 @@
                                                         <div class="col-md-5">
                                                             <div class="form-group">
                                                                 <label>Chauffeur</label><br>
-                                                                <select class="select1" name="chauffeurs"[(ngModel)]="utilisateur.chauffeur">
-                                                                    <option *ngFor="let c of chauffeurs" [ngValue]="c">{{c.prenomChauffeur}}</option>
+                                                                <select class="select1" name="chauffeur" [(ngModel)]="reservation.chauffeur">
+                                                                    <option *ngFor="let cha of chauffeurs" [ngValue]="cha">{{cha.prenomChauffeur}}</option>
                                                                 </select>
                                                             </div>
                                                          </div>  
@@ -93,7 +93,7 @@
                                         <div> 
                                             <div class="row" id="boutons">                                                
                                                 <button type="button" class="btn btn-info btn-fill" (click)="getDistance('top','center')">Simulez le prix du trajet</button> &nbsp;&nbsp;                                           
-                                                <button type="submit" class="btn btn-info btn-fill" (click)="showNotification('top','center');resetCurrentLocation()">Réservez</button> &nbsp;&nbsp;                                                                                      
+                                                <button type="submit" class="btn btn-info btn-fill" (click)="showNotification('top','center')">Réservez</button> &nbsp;&nbsp;                                                                                      
                                                 <button class="btn btn-info btn-fill"><a href="#/annonce" class="boutonAnnonce">Voir les offres</a></button> 
                                                 <!--<input type="button"  value="Click Me!">-->                                        
                                             </div>
