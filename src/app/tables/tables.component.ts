@@ -1,5 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular';
+import { AppService } from 'app/app.service';
 import { Agence } from 'app/modules/agence';
 import { Chauffeur } from 'app/modules/chauffeur';
 import { Taxi } from 'app/modules/taxi';
@@ -42,8 +44,13 @@ export class TablesComponent implements OnInit {
     agence: Agence=new Agence();
     utilisateurs!: any[];
     utilisateur: Utilisateur =new Utilisateur();
+    responseAll: any;
+    isAdmin=false;
+    isClient=false;
+    isResp=false;
+    isChauffeur=false;
 
-  constructor(private chauffeurService:ChauffeurService, private taxiService:TaxiService, private agenceService:AgenceService,private utilisateurService:UtilisateurService) { }
+  constructor(private chauffeurService:ChauffeurService, private taxiService:TaxiService, private agenceService:AgenceService,private utilisateurService:UtilisateurService, private httpClient:HttpClient, private appService:AppService) { }
 
   ngOnInit() {
     this.findAllChauffeur();
@@ -94,4 +101,19 @@ export class TablesComponent implements OnInit {
           this.chauffeur = new Chauffeur();
         })
       }
+
+      authenticated(){
+        return this.appService.authenticated; // false
+      }
+
+      authorities(){
+        console.log("isAdmin="+this.appService.isAdmin);
+        if(this.appService.isAdmin==true){
+          return false;
+        }else{
+          return true;
+        }
+      }
+      
     }
+    

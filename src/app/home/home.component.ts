@@ -1,22 +1,52 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
 import * as Chartist from 'chartist';
+import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
+import { Address } from 'ngx-google-places-autocomplete/objects/address';
+import { Chauffeur } from 'app/modules/chauffeur';
+import { Utilisateur } from 'app/modules/utilisateur';
+import { ChauffeurService } from 'app/services/chauffeur.service';
+import { UtilisateurService } from 'app/services/utilisateur.service';
 import { Reservation } from 'app/modules/reservation';
-import { ReservationService } from 'app/services/reservation.service';
-import { TrajetService } from 'app/services/trajet.service';
 import { Trajet } from 'app/modules/trajet';
+import { TrajetService } from 'app/services/trajet.service';
+import { ReservationService } from 'app/services/reservation.service';
 
-
-
+declare var $:any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  latitude = 51.678418;
-  longitude = 7.809007;
-    
+
+  chauffeurs!:any[];
+  chauffeur: Chauffeur=new Chauffeur();
+  utilisateurs!:any[];
+  utilisateur: Utilisateur=new Utilisateur();
+  reservations!:any[];
+  reservation: Reservation=new Reservation();
+  trajets!:any[];
+  trajet: Trajet=new Trajet();
+
+  title;
+  latitude=null;
+  longitude=null;
+  latitude2=null;
+  longitude2=null;
+  distanceM;
+  distanceKM;
+  prix;
+  zoom=10;
+  zoomin;
+
+
+  @ViewChild("placesRef") placesRef : GooglePlaceDirective;
+  options = {
+    types : [],
+    componentRestrictions: {country: 'FR'}
+  }
+
     public emailChartType: ChartType;
     public emailChartData: any;
     public emailChartLegendItems: LegendItem[];
@@ -32,15 +62,20 @@ export class HomeComponent implements OnInit {
     public activityChartOptions: any;
     public activityChartResponsive: any[];
     public activityChartLegendItems: LegendItem[];
-    reservations!: any[]; 
-    trajets!: any[];
-    reservation: Reservation=new Reservation();
-    trajet: Trajet=new Trajet();
-  constructor(private reservationService:ReservationService, private trajetService:TrajetService) { }
+
+    public origin: any;
+    public destination: any;
+
+  constructor(private chauffeurService:ChauffeurService, private utilisateurService:UtilisateurService, private trajetService:TrajetService, private reservationService:ReservationService) { }
+
 
   ngOnInit() {
-     this.findAllTrajet();
-     this.findAllReservation();
+
+      this.setCurrentLocation();
+      this.resetCurrentLocation();
+      this.findAllChauffeurs();
+      this.findAllReservations();
+      this.findAllTrajets();
       this.emailChartType = ChartType.Pie;
       this.emailChartData = {
         labels: ['62%', '32%', '6%'],
@@ -122,23 +157,104 @@ export class HomeComponent implements OnInit {
         { title: 'Tesla Model S', imageClass: 'fa fa-circle text-info' },
         { title: 'BMW 5 Series', imageClass: 'fa fa-circle text-danger' }
       ];
+
     }
-    findAllReservation(){
-      this.reservationService.findAll().subscribe(data => {this.reservation = data});
-    }
-    saveReservation(){
-      this.reservationService.save(this.reservation).subscribe(() => {
-        this.findAllReservation();
-        this.reservation = new Reservation();
+  
+  public handleAddressChange(address: Address) {
+      // Do some stuff
+      console.log(address);
+      console.log('Latitude : ' + address.geometry.location.lat());
+      console.log('Longitude : ' + address.geometry.location.lng());
+
+      this.latitude = address.geometry.location.lat();
+      this.longitude = address.geometry.location.lng();
+  }
+  public handleAddressChange2(address2: Address) {
+    // Do some stuff
+    console.log(address2);
+    console.log('Latitude : ' + address2.geometry.location.lat());
+    console.log('Longitude : ' + address2.geometry.location.lng());
+
+    this.latitude2 = address2.geometry.location.lat();
+    this.longitude2 = address2.geometry.location.lng();
+  }
+  public setCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.zoomin = 15;
       })
     }
-    findAllTrajet(){
-      this.trajetService.findAll().subscribe(data => {this.trajet = data});
-    }
-    saveTrajet(){
-      this.trajetService.save(this.trajet).subscribe(() => {
-        this.findAllTrajet();
-        this.trajet = new Trajet();
+  }
+
+  public resetCurrentLocation() {
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.zoomin = 15;
       })
     }
+  }
+
+  getDistance(from, align) {
+    const type = ['','info','success','warning','danger'];
+    var color = Math.floor((Math.random() * 4) + 1);
+
+    this.origin = { lat: this.latitude, lng: this.longitude };
+    this.destination = { lat: this.latitude2, lng: this.longitude2 };
+    this.distanceM = google.maps.geometry.spherical.computeDistanceBetween(this.origin, this.destination);
+    this.distanceKM = (google.maps.geometry.spherical.computeDistanceBetween(this.origin, this.destination))*0.001;
+    this.prix = 5 * this.distanceKM;
+    console.log('Distance=' +this.distanceM)
+    $.notify({
+      icon: "pe-7s-compass",
+      message: "Distance="+this.distanceKM.toFixed(2)+" Km.             Prix estimé du trajet:"+this.prix.toFixed(2)+" €."
+  },{
+      type: type[color],
+      timer: 3000,
+      placement: {
+          from: from,
+          align: align
+      }
+  });
+  }
+  showNotification(from, align){
+    const type = ['','info','success','warning','danger'];
+
+    var color = Math.floor((Math.random() * 4) + 1);
+    $.notify({
+        icon: "pe-7s-car",
+        message: "Votre réservation <b>Taxi Driver</b> a bien été prise en compte!"
+    },{
+        type: type[color],
+        timer: 1000,
+        placement: {
+            from: from,
+            align: align
+        }
+    });
+}
+findAllChauffeurs(){
+  this.chauffeurService.findAll().subscribe(data => {this.chauffeurs = data});
+}
+findAllTrajets(){
+  this.chauffeurService.findAll().subscribe(data => {this.chauffeurs = data});
+}
+findAllReservations(){
+  this.chauffeurService.findAll().subscribe(data => {this.chauffeurs = data});
+}
+saveReservation(){
+  this.reservationService.save(this.reservation).subscribe(()=> {
+    this.findAllReservations();
+    this.reservation =new Reservation();
+  })
+}
+saveTrajet(){
+  this.trajetService.save(this.trajet).subscribe(()=> {
+    this.findAllTrajets();
+    this.trajet =new Trajet();
+  })
+}
 }

@@ -1,6 +1,23 @@
-.header{
-    background-image: url(../../assets/img/taxiNightDroite2.jpg);
+.main-content{
+    background-color: rgb(196, 196, 196);
+}
+.header1{
+    background-color: goldenrod;
+    /*background-image: url(../../assets/img/taxiNB1628_57.jpg);*/
     height: 57px;
+    opacity: 60%;
+}
+.header2{
+    background-color: goldenrod;
+    /*background-image: url(../../assets/img/taxiNB720_57.jpg);*/
+    height: 57px;
+    opacity: 60%;
+}
+.header3{
+    background-color: goldenrod;
+    /*background-image: url(../../assets/img/taxiNB899_57.jpg);*/
+    height: 57px;
+    opacity: 60%;
 }
 
 #avisEtStats{
@@ -12,37 +29,39 @@
 }
 #avis{
     position: absolute;
-    width: 49%;
-    top: 0;
+    width: 899px;
     right: 0;
+    top: 440px;
+    /*border: 3px solid red;*/
+
 }
 .fa-star {
-	color: gray;
-	cursor: pointer;
-	padding: 0.0625rem;
+    color: gray;
+    cursor: pointer;
+    padding: 0.0625rem;
 }
 .fa-star.gold {
-	color: #ffdc0f;
+    color: #ffdc0f;
 }
 
 .rating {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .stars {
-		display: inline-flex;
-		justify-content: center;
-		font-size: 3em;
+        display: inline-flex;
+        justify-content: center;
+        font-size: 3em;
 }
 
 .stars:hover .fa-star {
-		color: #ffdc0f;
+        color: #ffdc0f;
 }
-	
+    
 .stars .fa-star:hover ~ .fa-star {
-		color: gray;
+        color: gray;
 }
 
 .titleavis:hover{ 
@@ -65,6 +84,118 @@
     color: goldenrod;
     text-align: center;
 }
+h3{
+    text-align: center;
+}
+.content{
+    position: absolute;
+    width: 1630px;
+    /*border: 6px solid red;*/
+    padding: 0;
+    top: 10;
+}
+.reservation{
+    position: relative;
+    /*border: 6px solid red;*/
+    width: 500px;
+    left: 10px;
+    bottom: 10px;
+}
+.row{
+    position: relative;
+    /*border: 6px solid red;*/
+}
 agm-map {
-    height: 300px;
+    position: absolute;
+    height: 390px;
+    width: 879px;
+    right: 10px;
+    top: 20px;
+    bottom: 20px;
+    border-radius: 10px;
+}
+.map{
+    position: relative;
+    /*border: 6px solid red;*/
+    width: 1000px;
+    right: 0;
+}
+input[type=text] {
+    width: 700px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #E8E8E8;
+    -webkit-transition: 1s;
+    transition: 1s;
+    outline: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+  
+input[type=text]:focus {
+    border: 3px solid #ccc;
+}
+
+input[type=date] {
+    width: 200px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 3px solid #E8E8E8;
+    -webkit-transition: 1s;
+    transition: 1s;
+    outline: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+  
+input[type=date]:focus {
+    border: 3px solid #ccc;
+}
+.select1{
+    width: 200px;
+    height: 20px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 3px solid #E8E8E8;
+    -webkit-transition: 1s;
+    transition: 1s;
+    outline: none;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: white;
+}
+  
+.select1:focus {
+    border: 3px solid #ccc;
+}
+.centrerdate{
+    text-align: center;
+}
+.boutonAnnonce{
+    color: white;
+}
+#boutons{
+    text-align: center;
+}
+#pub{
+    position: absolute;
+    width: 720px;
+    padding-left: 0;
+    top: 440px;
+    height: 273px;
+    text-align: center;
+    color: goldenrod;
+    
+}
+.offre{
+    color: goldenrod;
+    text-align: center;
+    text-decoration-line  : underline ;
+}
+.offre:hover{ 
+    transform: scale(1.2);
+    color: goldenrod;
+    text-decoration-line  : underline ;
 }

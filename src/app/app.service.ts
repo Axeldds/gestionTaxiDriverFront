@@ -13,6 +13,7 @@ export class AppService {
   isAdmin=false;
 
   constructor(private httpClient: HttpClient) { }
+  
   authenticate(credentials:any, callback:any){
     const headers = new HttpHeaders(
       credentials ? {
@@ -23,6 +24,21 @@ export class AppService {
       this.responseAll = response;
       if(this.responseAll['username']){
         this.authenticated=true;
+
+      for(let i=0;i<this.responseAll['roles'].length;i++){
+        if(this.responseAll['roles'][i]['idRole'] == 1){
+          this.isAdmin = true;
+        }
+        if(this.responseAll['roles'][i]['idRole'] == 2){
+          this.isClient = true;
+        }
+        if(this.responseAll['roles'][i]['idRole'] == 3){
+          this.isResp = true;
+        }
+        if(this.responseAll['roles'][i]['idRole'] == 4){
+          this.isChauffeur = true;
+        }
+      }
       }else{
         this.authenticated=false;
       }

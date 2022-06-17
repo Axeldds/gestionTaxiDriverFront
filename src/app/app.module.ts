@@ -1,7 +1,7 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app.routing';
@@ -32,6 +32,13 @@ import listPlugin from '@fullcalendar/list';
 import interactionPlugin from '@fullcalendar/interaction';
 import { AgenceComponent } from './agence/agence.component';
 import { LoginComponent } from './login/login.component';
+import { PlanningComponent } from './planning/planning.component';
+import { ListechauffeurComponent } from './listechauffeur/listechauffeur.component';
+import { ListeresposableComponent } from './listeresposable/listeresposable.component';
+import { ListeadministrateurComponent } from './listeadministrateur/listeadministrateur.component';
+import { Observable } from 'rxjs';
+import { AppService } from './app.service';
+
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -40,6 +47,16 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   interactionPlugin
 ]);
 
+@Injectable()
+export class XhrInterceptor implements HttpInterceptor{
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+ const xhr=req.clone({
+  headers: req.headers.set('X-Requested-With','XMLHttpRequest')
+ });   
+    return next.handle(xhr);
+  }
+  
+}
 
 @NgModule({
   imports: [
@@ -72,8 +89,15 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     AnnonceComponent,
     AgenceComponent,
     LoginComponent,
+    PlanningComponent,
+    ListechauffeurComponent,
+    ListeresposableComponent,
+    ListeadministrateurComponent,
   ],
-  providers: [],
+  providers: [
+    AppService,
+    {provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

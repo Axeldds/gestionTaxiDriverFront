@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>note</label>
+                            <label>Note</label>
                             <input type="number" class="form-control" placeholder="note" [(ngModel)]="avis.note" name="note">
                         </div>
                         <div class="form-group">
@@ -20,10 +20,16 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label>commentaire</label>
+                            <label>Commentaire</label>
                             <textarea type="text" rows="5" class="form-control" placeholder="Répandez votre amour ou votre haine peu importe on ne lit pas vos commentaires.." [(ngModel)]="avis.commentaire" name="commentaire"></textarea>
                         </div>
                     </div>
+                </div>
+                <div class="form-group">
+                    <label>Chauffeur</label><br>
+                    <select class="select1" name="chauffeur"[(ngModel)]="avis.chauffeur">
+                        <option *ngFor="let c of chauffeurs" [ngValue]="c">{{c.prenomChauffeur}}</option>
+                    </select>
                 </div>
                     <button type="submit" class="btn btn-info btn-fill pull-right">Déposer l'avis</button>
                 <div class="clearfix"></div>
@@ -52,6 +58,7 @@
                                                     <th>note </th>
                                                     <th>titre </th>
                                                     <th>Commentaire</th>
+                                                    <th>Chauffeur</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -61,7 +68,10 @@
                                                     <td>{{a.note}}</td>
                                                     <td>{{a.titre}}</td>
                                                     <td>{{a.commentaire}}</td>
+                                                    <td>{{a.chauffeur.nomChauffeur}}</td>
+                                                    <div *ngIf="idRole == 1" [hidden]="!authentificate()">
                                                     <td><button (click)="deleteAvis(a.idAvis)" class="btn btn-info btn-fill pull-center">Supprimer</button></td>
+                                                    </div>
                                                 </tr>
                                             </tbody>
                                       </table>

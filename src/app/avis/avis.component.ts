@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Avis } from 'app/modules/avis';
+import { Chauffeur } from 'app/modules/chauffeur';
+import { Utilisateur } from 'app/modules/utilisateur';
 import { AvisService } from 'app/services/avis.service';
+import { ChauffeurService } from 'app/services/chauffeur.service';
 
 @Component({
   selector: 'app-avis',
@@ -15,11 +18,16 @@ export class AvisComponent implements OnInit {
   type:string="number";
   avisS!: any[];
   avis: Avis=new Avis();
-  constructor(private avisService:AvisService) { }
+  chauffeurs!:any[];
+  chauffeur: Chauffeur = new Chauffeur();
+  utilisateurs!:any[];
+  utilisateur: Utilisateur=new Utilisateur();
+  constructor(private avisService:AvisService, private chauffeurService:ChauffeurService) { }
 
   ngOnInit(){
     //this.findAll();
     this.findByNote();
+    this.findAllChauffeur();
   }
 
   /*findAll(){
@@ -48,6 +56,10 @@ export class AvisComponent implements OnInit {
     }
     onSubmitNote(){
       this.findByNote();
+    }
+
+    findAllChauffeur(){
+      this.chauffeurService.findAll().subscribe(data=>{this.chauffeurs=data});
     }
 
 }
