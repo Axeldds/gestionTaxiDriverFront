@@ -45,19 +45,21 @@
                     <thead>
                         <tr>
                             <th>Id Réclamation</th>
-                            <!--<th>Id Client</th> (a récupérer depuis l'utilisateur connecté)-->
                             <th>Agence</th>
                             <th>Réclamation</th>
+                            <div [hidden]="authorities()">
                             <th>Action</th>
+                        </div>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let rec of reclamations">
                             <td>{{rec.idReclamation}}</td>
-                            <!--<td>{{}}</td>-->
                             <td>{{rec.agence.nomAgence}}</td>
                             <td>{{rec.texte}}</td>
+                            <div [hidden]="authorities()">
                             <td><button (click)="deleteReclamation(rec.idReclamation)" class="btn btn-info btn-fill pull-center">Supprimer</button></td>
+                        </div>
                         </tr>
                     </tbody>
               </table>
