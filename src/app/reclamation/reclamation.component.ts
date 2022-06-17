@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'app/app.service';
 import { Agence } from 'app/modules/agence';
 import { Reclamation } from 'app/modules/reclamation';
 import { AgenceService } from 'app/services/agence.service';
@@ -15,7 +16,7 @@ export class ReclamationComponent implements OnInit {
   reclamation: Reclamation=new Reclamation();
   agence: Agence=new Agence();
 
-  constructor(private reclamationService:ReclamationService, private agenceService:AgenceService) { }
+  constructor(private reclamationService:ReclamationService, private agenceService:AgenceService, private appService:AppService) { }
 
   ngOnInit(): void {
     this.findAllReclamation();
@@ -37,5 +38,13 @@ export class ReclamationComponent implements OnInit {
       this.findAllReclamation();
       this.reclamation = new Reclamation();
     })
+  }
+  authorities(){
+    console.log("isAdmin="+this.appService.isAdmin);
+    if(this.appService.isAdmin==true){
+      return false;
+    }else{
+      return true;
+    }
   }
 }
