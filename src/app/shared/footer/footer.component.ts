@@ -9,4 +9,17 @@ declare var $:any;
 
 export class FooterComponent{
     test : Date = new Date();
+    
+    onClick(){
+        let x = document.querySelector("#Nous");
+        if (x){
+            x.scrollIntoView();
+        }
+    }
+    onClick2(){
+        let x = document.querySelector("#Contact");
+        if (x){
+            x.scrollIntoView();
+        }
+    }
 }
