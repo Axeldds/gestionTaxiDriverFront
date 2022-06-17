@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'app/app.service';
 import { Annonce } from 'app/modules/annonce';
 import { AnnonceService } from 'app/services/annonce.service';
 
@@ -11,8 +12,12 @@ export class AnnonceComponent implements OnInit {
 
   annonces!:any[]
   annonce : Annonce=new Annonce();
+  isAdmin=false;
+  isClient=false;
+  isResp=false;
+  isChauffeur=false;
 
-  constructor(private annonceService:AnnonceService) {}
+  constructor(private annonceService:AnnonceService, private appService:AppService) {}
 
   ngOnInit(): void {    
     this.findAllAnnonce();
@@ -32,6 +37,20 @@ export class AnnonceComponent implements OnInit {
       this.annonce = new Annonce();
     })
   }
+
+  authenticated(){
+    return this.appService.authenticated; // false
+  }
+
+  authorities(){
+    console.log("isResp="+this.appService.isResp);
+    if(this.appService.isResp==true){
+      return false;
+    }else{
+      return true;
+    }
+  }
+
   }
 
 
