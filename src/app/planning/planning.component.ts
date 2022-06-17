@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from 'app/app.service';
 import { Chauffeur } from 'app/modules/chauffeur';
 import { Reservation } from 'app/modules/reservation';
 import { ChauffeurService } from 'app/services/chauffeur.service';
@@ -15,7 +16,11 @@ export class PlanningComponent implements OnInit {
   chauffeurs!: any[];
   chauffeur: Chauffeur=new Chauffeur();
   reservation: Reservation=new Reservation();
-  constructor(private chauffeurService:ChauffeurService, private reservationService:ReservationService) { }
+  isAdmin=false;
+  isClient=false;
+  isResp=false;
+  isChauffeur=false;
+  constructor(private chauffeurService:ChauffeurService, private reservationService:ReservationService, private appService: AppService) { }
 
   ngOnInit(): void {
     this.findAllChauffeur();
@@ -39,6 +44,19 @@ export class PlanningComponent implements OnInit {
   }
   onSubmitDate(){
     this.findbyDateDebut();
+  }
+
+  authenticated(){
+    return this.appService.authenticated; // false
+  }
+
+  authorities(){
+    console.log("isResp="+this.appService.isResp);
+    if(this.appService.isResp==true){
+      return false;
+    }else{
+      return true;
+    }
   }
 
 }
