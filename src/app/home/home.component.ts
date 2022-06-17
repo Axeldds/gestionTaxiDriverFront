@@ -76,12 +76,14 @@ export class HomeComponent implements OnInit {
       this.findAllChauffeurs();
       this.findAllReservations();
       this.findAllTrajets();
-
       this.emailChartType = ChartType.Pie;
       this.emailChartData = {
         labels: ['62%', '32%', '6%'],
-        series: [62, 32, 6]
+        series: [62, 32, 6],
+        
       };
+      
+
       this.emailChartLegendItems = [
         { title: 'Open', imageClass: 'fa fa-circle text-info' },
         { title: 'Bounce', imageClass: 'fa fa-circle text-danger' },
