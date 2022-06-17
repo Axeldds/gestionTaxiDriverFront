@@ -10,5 +10,5 @@ export class Utilisateur {
     clients!:Client[];
     responsables!:ResponsableAgence[];
     administrateurs!:Administrateur[];
-    chauffeur:Chauffeur;
+    chauffeur:Chauffeur=new Chauffeur();
 }

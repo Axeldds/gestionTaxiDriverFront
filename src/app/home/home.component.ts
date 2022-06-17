@@ -244,15 +244,13 @@ findAllReservations(){
   this.chauffeurService.findAll().subscribe(data => {this.chauffeurs = data});
 }
 saveReservation(){
-  this.reservationService.save(this.reservation).subscribe(()=> {
-    this.findAllReservations();
-    this.reservation =new Reservation();
-  })
-}
-saveTrajet(){
   this.trajetService.save(this.trajet).subscribe(()=> {
     this.findAllTrajets();
     this.trajet =new Trajet();
+  })
+  this.reservationService.save(this.reservation).subscribe(()=> {
+    this.findAllReservations();
+    this.reservation =new Reservation();
   })
 }
 }

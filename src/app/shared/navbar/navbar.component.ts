@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { AppService } from 'app/app.service';
 
 @Component({
     // moduleId: module.id,
@@ -13,8 +14,9 @@ export class NavbarComponent implements OnInit{
     location: Location;
     private toggleButton: any;
     private sidebarVisible: boolean;
+    isAdmin= false;
 
-    constructor(location: Location,  private element: ElementRef) {
+    constructor(location: Location,  private element: ElementRef, private appService:AppService) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -63,4 +65,5 @@ export class NavbarComponent implements OnInit{
       }
       return 'Accueil';
     }
+
 }
