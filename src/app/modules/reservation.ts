@@ -8,6 +8,6 @@ export class Reservation {
     dateFin!:Date;
     prix!:number;
     client!:Client;
-    trajets!:Trajet[];
+    trajet!:Trajet;
     annonce!:Annonce;
 }

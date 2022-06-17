@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { LegendItem, ChartType } from '../lbd/lbd-chart/lbd-chart.component';
 import * as Chartist from 'chartist';
+import { Reservation } from 'app/modules/reservation';
+import { ReservationService } from 'app/services/reservation.service';
+import { TrajetService } from 'app/services/trajet.service';
+import { Trajet } from 'app/modules/trajet';
 
 
 
@@ -28,14 +32,23 @@ export class HomeComponent implements OnInit {
     public activityChartOptions: any;
     public activityChartResponsive: any[];
     public activityChartLegendItems: LegendItem[];
-  constructor() { }
+    reservations!: any[]; 
+    trajets!: any[];
+    reservation: Reservation=new Reservation();
+    trajet: Trajet=new Trajet();
+  constructor(private reservationService:ReservationService, private trajetService:TrajetService) { }
 
   ngOnInit() {
+     this.findAllTrajet();
+     this.findAllReservation();
       this.emailChartType = ChartType.Pie;
       this.emailChartData = {
         labels: ['62%', '32%', '6%'],
-        series: [62, 32, 6]
+        series: [62, 32, 6],
+        
       };
+      
+
       this.emailChartLegendItems = [
         { title: 'Open', imageClass: 'fa fa-circle text-info' },
         { title: 'Bounce', imageClass: 'fa fa-circle text-danger' },
@@ -109,8 +122,23 @@ export class HomeComponent implements OnInit {
         { title: 'Tesla Model S', imageClass: 'fa fa-circle text-info' },
         { title: 'BMW 5 Series', imageClass: 'fa fa-circle text-danger' }
       ];
-
-
     }
-
+    findAllReservation(){
+      this.reservationService.findAll().subscribe(data => {this.reservation = data});
+    }
+    saveReservation(){
+      this.reservationService.save(this.reservation).subscribe(() => {
+        this.findAllReservation();
+        this.reservation = new Reservation();
+      })
+    }
+    findAllTrajet(){
+      this.trajetService.findAll().subscribe(data => {this.trajet = data});
+    }
+    saveTrajet(){
+      this.trajetService.save(this.trajet).subscribe(() => {
+        this.findAllTrajet();
+        this.trajet = new Trajet();
+      })
+    }
 }
